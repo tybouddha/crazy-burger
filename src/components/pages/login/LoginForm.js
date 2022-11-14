@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import { BsPersonCircle } from "react-icons/bs"
 import { IoChevronForward } from "react-icons/io5"
+import { BsPersonCircle } from "react-icons/bs"
+import Input from "./Input"
 
 export default function LoginForm() {
   // state
@@ -30,18 +31,15 @@ export default function LoginForm() {
         <h2>Connectez-vous</h2>
       </div>
       <div>
-        <div className="input-with-icon">
-          <BsPersonCircle className="icon" />
-          <input
-            value={inputValue}
-            onChange={handleChange}
-            type="text"
-            placeholder="Entrez votre prénom"
-            required
-          />
-        </div>
+        <Input
+          value={inputValue}
+          onChange={handleChange}
+          placeholder={"Entrez votre prénom"}
+          required
+          Icon={<BsPersonCircle className="icon" />}
+        />
 
-        <button className="button-with-icon">
+        <button className="button-with-icon alex-style-pour-input-et-pour-button">
           <span>Accéder à mon espace</span>
           <IoChevronForward className="icon" />
         </button>
@@ -74,37 +72,6 @@ const LoginFormStyled = styled.form`
     margin: 20px 10px 10px;
     color: white;
     font-size: 36px;
-  }
-
-  .input-with-icon {
-    /* border: 1px solid red; */
-    background-color: #fff;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    padding: 18px 24px;
-    margin: 18px 0; // could be handle in Parent too
-    /* white-space: nowrap; */
-
-    .icon {
-      font-size: 15px;
-      margin-right: 8px;
-      color: #93a2b1;
-      /* min-width: 1em; // that way, the icon size is NOT affected by width of the entire component. */
-    }
-
-    input {
-      border: none;
-      font-size: 15px;
-      color: #17161a;
-      /* width: 100%; */
-      /* display: flex; */
-    }
-
-    &::placeholder {
-      background: white;
-      color: lightgrey;
-    }
   }
 
   .button-with-icon {
