@@ -11,6 +11,7 @@ export default function LoginForm() {
 
   // comportements
   const handleSubmit = (event) => {
+    console.log("submitted")
     event.preventDefault()
     setInputValue("")
     navigate(`order/${inputValue}`)
@@ -49,7 +50,7 @@ export default function LoginForm() {
   )
 }
 
-const LoginFormStyled = styled.div`
+const LoginFormStyled = styled.form`
   text-align: center;
   max-width: 500px;
   min-width: 400px;
