@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { IoChevronForward } from "react-icons/io5"
 import { BsPersonCircle } from "react-icons/bs"
 import TextInput from "../../reusable-ui/TextInput"
+import PrimaryButton from "../../reusable-ui/PrimaryButton"
 
 export default function LoginForm() {
   // state
@@ -39,10 +40,10 @@ export default function LoginForm() {
           Icon={<BsPersonCircle className="icon" />}
         />
 
-        <button className="button-with-icon alex-style-pour-input-et-pour-button">
-          <span>Accéder à mon espace</span>
-          <IoChevronForward className="icon" />
-        </button>
+        <PrimaryButton
+          label={"Accéder à mon espace"}
+          Icon={<IoChevronForward className="icon" />}
+        />
       </div>
     </LoginFormStyled>
   )
@@ -74,49 +75,11 @@ const LoginFormStyled = styled.form`
     font-size: 36px;
   }
 
-  .button-with-icon {
-    width: 100%;
-    border: 1px solid red;
-    display: inline-flex;
+  .icon {
+    display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; //is used in case you want to create interactive icons where an icon replaces the text label.
-    white-space: nowrap; //prevents the text label from wrapping to the next line.
-    text-decoration: none; //removes the text decoration in case you’re applying the .btn class to a link.
-    line-height: 1;
-
-    padding: 18px 24px;
-    border-radius: 5px;
     font-size: 15px;
-    font-weight: 800;
-    color: white;
-    background-color: #ff9f1b;
-    border: 1px solid #ff9f1b;
-
-    &:hover:not(:disabled) {
-      background-color: white;
-      color: #ff9f1b;
-      border: 1px solid #ff9f1b;
-      transition: all 200ms ease-out;
-    }
-
-    &:active {
-      color: white;
-      background-color: #ff9f1b;
-      border: 1px solid #ff9f1b;
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 15px;
-      margin-left: 10px;
-    }
+    margin-left: 10px;
   }
 `
