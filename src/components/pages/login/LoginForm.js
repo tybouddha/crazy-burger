@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import "./LoginForm.css"
+import styled from "styled-components"
+import { theme } from "../../../theme"
 
 export default function LoginForm() {
   // state
@@ -27,23 +28,60 @@ export default function LoginForm() {
 
   // affichage
   return (
-    <form action="submit" onSubmit={handleSubmit}>
-      <h1 style={{ color: "red", backgroundColor: "green" }} className="alex">
-        Bienvenue chez nous !
-      </h1>
-      <br />
-      <h2 className="bonbon">Connectez-vous</h2>
-      <input
-        value={inputValue}
-        onChange={handleChange}
-        type="text"
-        placeholder="Entre votre prénom..."
-        required
-      />
-      <button>Accédez à votre espace</button>
-    </form>
+    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
+      <div className="container-text">
+        <h1 className="alex">Bienvenue chez nous !</h1>
+        <br />
+        <h2 className="bonbon">Connectez-vous</h2>
+      </div>
+      <div className="cta-container">
+        <input
+          value={inputValue}
+          onChange={handleChange}
+          type="text"
+          placeholder="Entre votre prénom..."
+          required
+        />
+        <button>Accédez à votre espace</button>
+      </div>
+    </LoginFormStyled>
   )
 }
+
+const LoginFormStyled = styled.form`
+  border: 1px solid red;
+
+  .container-text {
+    background: grey;
+    border: 1px solid ${theme.colors.tiertiary};
+
+    h1 {
+      border: 1px solid red;
+      color: ${theme.colors.primary};
+    }
+
+    h2 {
+      color: ${theme.colors.tiertiary};
+      border: 1px solid blue;
+    }
+  }
+
+  .cta-container {
+    background: ${theme.colors.green};
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    input {
+      border: 1px solid yellow;
+    }
+
+    button {
+      border: 1px solid purple;
+    }
+  }
+`
 
 /** 4 méthodes pour ajouter du style à un composant
  * 1. inline style
