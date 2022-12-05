@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { theme } from "../../../../theme"
+import PrimaryButton from "../../../reusable-ui/PrimaryButton"
 
 export default function Product({ title, imageSource, price }) {
   return (
@@ -11,7 +12,9 @@ export default function Product({ title, imageSource, price }) {
         <div className="title">{title}</div>
         <div className="description">
           <div className="left-description">{price}</div>
-          <button className="right-description">Ajouter</button>
+          <div className="right-description">
+            <PrimaryButton className="primary-button" label={"Ajouter"} />
+          </div>
         </div>
       </div>
     </ProductStyled>
@@ -30,10 +33,10 @@ const ProductStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
 
   .image {
-    border: 1px solid yellow;
     width: 100%;
     height: auto;
     margin-top: 30px;
+    margin-bottom: 20px;
 
     img {
       width: 100%;
@@ -43,9 +46,10 @@ const ProductStyled = styled.div`
   }
 
   .text-info {
-    border: 1px solid fuchsia;
     display: grid;
     grid-template-rows: 30% 70%;
+    padding: 5px;
+
     .title {
       margin: auto 0;
       font-size: ${theme.fonts.size.P4};
@@ -63,8 +67,8 @@ const ProductStyled = styled.div`
     .description {
       display: grid;
       grid-template-columns: 1fr 1fr;
+
       .left-description {
-        border: 1px solid blue;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -75,14 +79,18 @@ const ProductStyled = styled.div`
         font-weight: ${theme.fonts.weights.medium};
         color: ${theme.colors.primary};
       }
+
       .right-description {
-        cursor: pointer;
-        border: 1px solid green;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         font-size: ${theme.fonts.size.P1};
-        cursor: pointer;
+
+        .primary-button {
+          font-size: ${theme.fonts.size.XS};
+          cursor: pointer;
+          padding: 12px;
+        }
       }
     }
   }
