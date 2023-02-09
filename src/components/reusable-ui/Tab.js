@@ -25,6 +25,7 @@ const TabStyled = styled.button`
 
   position: relative;
   left: 5%;
+  top: 1px;
 
   background: #ffffff;
   border-width: 1px 1px 2px 1px;
@@ -35,5 +36,9 @@ const TabStyled = styled.button`
 
   .icon {
     display: flex;
+  }
+
+  :hover {
+    border-bottom: 2px solid ${theme.colors.white};
   }
 `

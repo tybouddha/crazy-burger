@@ -24,5 +24,6 @@ const AdminTabsStyled = styled.div`
     background: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
+    border-bottom: 2px;
   }
 `
