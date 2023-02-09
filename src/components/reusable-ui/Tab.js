@@ -1,10 +1,11 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
 
-export default function Tab({ Icon, onClick, className }) {
+export default function Tab({ label, Icon, onClick, className }) {
   return (
     <TabStyled className={className} onClick={onClick}>
-      <div className="icon">{Icon}</div>
+      {Icon && <div className="icon">{Icon}</div>}
+      {label && <span className="label">{label}</span>}
     </TabStyled>
   )
 }
@@ -38,7 +39,12 @@ const TabStyled = styled.button`
     display: flex;
   }
 
+  .label {
+    margin-left: 13px;
+  }
+
   :hover {
     border-bottom: 2px solid ${theme.colors.white};
+    text-decoration: underline;
   }
 `
