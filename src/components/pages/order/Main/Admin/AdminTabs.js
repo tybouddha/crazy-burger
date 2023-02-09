@@ -3,10 +3,13 @@ import styled from "styled-components"
 import Tab from "../../../../reusable-ui/Tab"
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 
-export default function AdminTabs() {
+export default function AdminTabs({ isCollapsed, setIsCollapsed }) {
   return (
     <AdminTabsStyled>
-      <Tab Icon={<FiChevronDown />} />
+      <Tab
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        onClick={() => setIsCollapsed(!isCollapsed)}
+      />
     </AdminTabsStyled>
   )
 }
