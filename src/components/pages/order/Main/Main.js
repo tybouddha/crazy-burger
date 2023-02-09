@@ -5,7 +5,7 @@ import Menu from "./Menu"
 export default function Main() {
   return (
     <MainStyled className="main">
-      <div className="basket">Basket</div>
+      {/* <div className="basket">Basket</div> */}
       <div className="menu-and-panel-admin">
         <Menu />
         <div className="panel-admin">Admin</div>
@@ -25,12 +25,12 @@ const MainStyled = styled.div`
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 
   display: grid;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: 1fr;
 
-  .basket {
+  /* .basket {
     background: pink;
     border: 1px solid black;
-  }
+  } */
 
   .menu-and-panel-admin {
     position: relative;
