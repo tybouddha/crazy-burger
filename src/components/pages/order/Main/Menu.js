@@ -25,7 +25,6 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.div`
-  border: 2px solid blue;
   background: ${theme.colors.background_white};
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -34,4 +33,6 @@ const MenuStyled = styled.div`
   justify-items: center;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   overflow-y: scroll;
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
 `
