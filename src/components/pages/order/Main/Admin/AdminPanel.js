@@ -7,10 +7,6 @@ export default function AdminPanel() {
 
 const AdminPanelStyled = styled.div`
   height: 251px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
