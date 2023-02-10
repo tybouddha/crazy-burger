@@ -1,8 +1,17 @@
+import { useContext } from "react"
 import styled from "styled-components"
+import OrderContext from "../../../../../context/OrderContext"
 import { theme } from "../../../../../theme"
 
 export default function AdminPanel() {
-  return <AdminPanelStyled className="panel-admin"></AdminPanelStyled>
+  const { isAddSelected, isEditSelected } = useContext(OrderContext)
+
+  return (
+    <AdminPanelStyled className="panel-admin">
+      {isAddSelected && "Ajouter un produit"}
+      {isEditSelected && "Modifier un produit"}
+    </AdminPanelStyled>
+  )
 }
 
 const AdminPanelStyled = styled.div`
