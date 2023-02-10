@@ -1,7 +1,9 @@
 import { AiOutlinePlus } from "react-icons/ai"
-import { MdModeEditOutline } from "react-icons/md"
+import { MdModeEditOutline, MdOutlineLocalDrink } from "react-icons/md"
+import { BiSun } from "react-icons/bi"
+import { GiBaseballGlove } from "react-icons/gi"
 
-export const getTabsConfig = (currentTabSelected) => [
+export const getTabsConfig = () => [
   // {
   //   index: "chevronUpDown",
   //   label: "",
@@ -13,12 +15,28 @@ export const getTabsConfig = (currentTabSelected) => [
     index: "add",
     label: "Ajouter un produit",
     Icon: <AiOutlinePlus />,
-    className: currentTabSelected === "add" ? "is-active" : "",
   },
   {
     index: "edit",
     label: "Modifier un produit",
     Icon: <MdModeEditOutline />,
-    className: currentTabSelected === "edit" ? "is-active" : "",
   },
+  // {
+  //   index: "theme",
+  //   label: "Changer thème",
+  //   Icon: <BiSun />,
+  // },
+  // {
+  //   index: "drink",
+  //   label: "Boire un verre",
+  //   Icon: <MdOutlineLocalDrink />,
+  // },
+  // {
+  //   index: "baseball",
+  //   label: "HomeRun",
+  //   Icon: <GiBaseballGlove />,
+  // },
 ]
+
+export const getTabSelected = (tabs, currentTabSelected) =>
+  tabs.find((tab) => tab.index === currentTabSelected)
