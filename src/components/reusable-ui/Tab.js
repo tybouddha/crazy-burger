@@ -32,7 +32,7 @@ const TabStyled = styled.button`
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-color: #e4e5e9;
-  box-shadow: 0px -6px 8px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: ${theme.shadows.subtle};
   border-radius: 5px 5px 0px 0px;
 
   .icon {
