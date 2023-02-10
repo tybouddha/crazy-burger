@@ -10,7 +10,7 @@ export default function Main() {
 
   return (
     <MainStyled className="main">
-      {/* <div className="basket">Basket</div> */}
+      <div className="basket">Basket</div>
       <div className="menu-and-panel-admin">
         <Menu />
         {isModeAdmin && <Admin />}
@@ -29,12 +29,12 @@ const MainStyled = styled.div`
   box-shadow: ${theme.shadows.strong};
 
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 25% 1fr;
 
-  /* .basket {
+  .basket {
     background: pink;
     border: 1px solid black;
-  } */
+  }
 
   .menu-and-panel-admin {
     position: relative;
