@@ -4,7 +4,7 @@ import Tab from "../../../../reusable-ui/Tab"
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 import { theme } from "../../../../../theme"
 import OrderContext from "../../../../../context/OrderContext"
-import { getTabsConfig } from "./getTabsConfig"
+import { tabsConfig } from "./tabsConfig"
 
 export default function AdminTabs() {
   const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected } =
@@ -15,7 +15,7 @@ export default function AdminTabs() {
     setCurrentTabSelected(tabSelected) // réactualise l'onglet sélectionné
   }
 
-  const tabs = getTabsConfig(currentTabSelected)
+  const tabs = tabsConfig
 
   // affichage
   return (
