@@ -11,7 +11,7 @@ export default function Main() {
   return (
     <MainStyled className="main">
       {/* <div className="basket">Basket</div> */}
-      <div className="menu-and-panel-admin">
+      <div className="menu-and-admin">
         <Menu />
         {isModeAdmin && <Admin />}
       </div>
@@ -36,7 +36,7 @@ const MainStyled = styled.div`
     border: 1px solid black;
   }
 
-  .menu-and-panel-admin {
+  .menu-and-admin {
     position: relative;
     display: grid;
     overflow-y: hidden;
