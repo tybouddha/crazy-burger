@@ -1,4 +1,4 @@
-import LoginForm from "./components/LoginForm";
+import LoginPage from "./components/pages/LoginPage";
 
 function App() {
   //state
@@ -7,7 +7,7 @@ function App() {
   //affichage
   return (
     <div>
-      <LoginForm />
+      <LoginPage />
     </div>
   );
 }
