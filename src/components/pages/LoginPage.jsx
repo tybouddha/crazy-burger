@@ -1,43 +1,37 @@
 import { useState } from "react";
 
-function LoginForm() {
+export default function LoginPage() {
   //state
-  const [nom, setNom] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   //comportements
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNom("");
+    alert(`Bonjour ${inputValue}`);
+    setInputValue("");
   };
 
   const handleChange = (event) => {
-    setNom(event.target.value);
+    setInputValue(event.target.value);
     console.log(event.target.value);
   };
 
-  const handleClick = () => {
-    if (nom === "") {
-      alert("Please fill in this field");
-    } else {
-      alert(`Bonjour ${nom}`);
-    }
-  };
   //render
   return (
     <div>
       <h1>Bienvenu Chez nous!</h1>
-      <p> Connectez-vous</p>
+      <br />
+      <h2> Connectez-vous</h2>
       <form action="submit" onSubmit={handleSubmit}>
         <input
-          value={nom}
+          value={inputValue}
           type="text"
           placeholder="Entrez votre prénom..."
           onChange={handleChange}
+          required
         ></input>
-        <button onClick={handleClick}>Accédez à votre espace</button>
+        <button>Accédez à votre espace</button>
       </form>
     </div>
   );
 }
-
-export default LoginForm;
