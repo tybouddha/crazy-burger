@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function LoginPage() {
+export default function LoginForm() {
   //state
   const [inputValue, setInputValue] = useState("");
 
@@ -15,23 +15,20 @@ export default function LoginPage() {
     setInputValue(event.target.value);
     console.log(event.target.value);
   };
-
-  //render
+  //Render
   return (
-    <div>
+    <form action="submit" onSubmit={handleSubmit}>
       <h1>Bienvenu Chez nous!</h1>
       <br />
       <h2> Connectez-vous</h2>
-      <form action="submit" onSubmit={handleSubmit}>
-        <input
-          value={inputValue}
-          type="text"
-          placeholder="Entrez votre prénom..."
-          onChange={handleChange}
-          required
-        ></input>
-        <button>Accédez à votre espace</button>
-      </form>
-    </div>
+      <input
+        value={inputValue}
+        type="text"
+        placeholder="Entrez votre prénom..."
+        onChange={handleChange}
+        required
+      ></input>
+      <button>Accédez à votre espace</button>
+    </form>
   );
 }
