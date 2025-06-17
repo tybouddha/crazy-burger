@@ -13,6 +13,7 @@ export default function OrderPage({ username }) {
   return (
     <div>
       <h1>Bonjour {username}</h1>
+      <br />
       <button onClick={handleClick}>Déconnexion</button>
     </div>
   );
