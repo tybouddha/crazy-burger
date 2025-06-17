@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage setUsername={setUsername} />} />
         <Route path="/order" element={<OrderPage username={username} />} />
-        <Route path="/*" element={<ErrorPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
