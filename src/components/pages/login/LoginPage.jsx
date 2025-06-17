@@ -1,10 +1,10 @@
 import LoginForm from "./LoginForm";
 
-export default function LoginPage() {
+export default function LoginPage({ setUsername }) {
   //state
 
   //comportements
 
   //render
-  return <LoginForm />;
+  return <LoginForm setUsername={setUsername} />;
 }
