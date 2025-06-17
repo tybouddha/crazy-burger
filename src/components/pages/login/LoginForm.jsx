@@ -9,7 +9,6 @@ export default function LoginForm() {
   //comportements
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`Bonjour ${inputValue}`);
     navigate("/order", { replace: true });
 
     setInputValue("");
