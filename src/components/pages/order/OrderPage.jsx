@@ -1,9 +1,9 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function OrderPage({ username }) {
+export default function OrderPage() {
   //state
   const navigate = useNavigate();
+  const { username } = useParams();
 
   //comportements
   const handleClick = () => {
