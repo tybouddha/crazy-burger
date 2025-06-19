@@ -10,11 +10,13 @@ function App() {
 
   //affichage
   return (
-    <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/order/:username" element={<OrderPage />} />
-      <Route path="*" element={<ErrorPage />} />
-    </Routes>
+    <React.StrictMode>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/order/:username" element={<OrderPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </React.StrictMode>
   );
 }
 
