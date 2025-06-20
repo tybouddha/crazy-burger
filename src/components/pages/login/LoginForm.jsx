@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 export default function LoginForm() {
   //state
@@ -33,3 +34,5 @@ export default function LoginForm() {
     </form>
   );
 }
+
+const LoginFormStyled = styled("form")``;
