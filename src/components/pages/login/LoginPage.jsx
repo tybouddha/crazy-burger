@@ -2,6 +2,7 @@ import styled from "styled-components";
 import LoginForm from "./LoginForm";
 import logoOrange from "../../../assets/images/logoOrange.png";
 import burgerBackground from "../../../assets/images/burgerBackground.jpg";
+import { theme } from "../../../theme/index.js";
 
 export default function LoginPage() {
   //state
@@ -11,10 +12,16 @@ export default function LoginPage() {
   //render
   return (
     <LoginPageStyled>
-      <div className="logoContainer">
-        <img src={logoOrange} alt="logo" />
+      <div className="contentContainer">
+        <div className="logoContainer">
+          <p>CRAZEE</p>
+          <img src={logoOrange} alt="logo" />
+          <p>BURGER</p>
+        </div>
+        <div className="loginFormContainer">
+          <LoginForm />;
+        </div>
       </div>
-      <LoginForm />;
     </LoginPageStyled>
   );
 }
@@ -25,7 +32,6 @@ const LoginPageStyled = styled("div")`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   ::before {
     content: "";
     position: absolute;
@@ -40,8 +46,37 @@ const LoginPageStyled = styled("div")`
     right: 0;
     z-index: -1;
   }
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    width: 100vw;
+  }
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid green;
+    height: 25%;
+  }
   img {
-    width: 100px;
-    height: 50px;
+    width: 150px;
+    height: 100px;
+  }
+  p {
+    color: ${theme.colors.primary};
+    font-size: ${theme.fonts.P5};
+    font-family: "Amatic+SC", cursive;
+    font-weight: ${theme.weights.regular};
+  }
+  .loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid pink;
+    height: 75%;
   }
 `;
