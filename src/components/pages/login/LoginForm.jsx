@@ -58,11 +58,4 @@ export default function LoginForm() {
   );
 }
 
-const LoginFormStyled = styled("form")`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items: center;
-  gap: ${theme.spacing.xs};
-`;
+const LoginFormStyled = styled("form")``;
