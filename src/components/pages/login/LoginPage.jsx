@@ -51,15 +51,14 @@ const LoginPageStyled = styled("div")`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
     width: 100vw;
   }
   .logoContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid green;
     height: 25%;
+    gap: ${theme.spacing.md};
   }
   img {
     width: 150px;
@@ -67,8 +66,8 @@ const LoginPageStyled = styled("div")`
   }
   p {
     color: ${theme.colors.primary};
-    font-size: ${theme.fonts.P5};
-    font-family: "Amatic+SC", cursive;
+    font-size: ${theme.fonts.P6};
+    font-family: "Amatic SC", cursive;
     font-weight: ${theme.weights.regular};
   }
   .loginFormContainer {
@@ -76,7 +75,6 @@ const LoginPageStyled = styled("div")`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid pink;
     height: 75%;
   }
 `;
