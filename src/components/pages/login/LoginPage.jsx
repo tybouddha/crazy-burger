@@ -12,13 +12,13 @@ export default function LoginPage() {
   //render
   return (
     <LoginPageStyled>
-      <div className="contentContainer">
-        <div className="logoContainer">
+      <div>
+        <div>
           <p>CRAZEE</p>
           <img src={logoOrange} alt="logo" />
           <p>BURGER</p>
         </div>
-        <div className="loginFormContainer">
+        <div>
           <LoginForm />;
         </div>
       </div>
