@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import LoginForm from "../../pages/login/LoginForm";
 import Logo from "../../reusable-ui/Logo";
-import backgroundImage from "../../../assets/images/burgerBackground.jpg";
 
 export default function LoginPage() {
   //state
@@ -11,14 +10,18 @@ export default function LoginPage() {
   //render
   return (
     <LoginPageStyled>
-      <Logo />
-      <LoginForm />;
+      <div className="content">
+        <Logo />
+        <LoginForm />
+      </div>
     </LoginPageStyled>
   );
 }
 
 const LoginPageStyled = styled("div")`
+  position: relative;
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,11 +29,10 @@ const LoginPageStyled = styled("div")`
 
   ::before {
     content: "";
-    /* background: url("../../../assets/images/burgerBackground.jpg") */
-    background-image: url(${backgroundImage});
-    background-color: rgba(0, 0, 0, 0.7);
+    background: url("/images/burgerBackground.jpg") rgba(0, 0, 0, 0.7);
     background-size: cover;
     background-position: center;
+    /* background-repeat: no-repeat; */
     //opacity du background
     background-blend-mode: darken;
     //Pour que le fond passe en arrière plan
@@ -40,5 +42,15 @@ const LoginPageStyled = styled("div")`
     left: 0;
     right: 0;
     bottom: 0;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
 `;
