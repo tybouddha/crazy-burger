@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import LoginForm from "../../pages/login/LoginForm";
 import Logo from "../../reusable-ui/Logo";
+import backgroundImage from "../../../assets/images/burgerBackground.jpg";
 
 export default function LoginPage() {
   //state
@@ -25,8 +26,9 @@ const LoginPageStyled = styled("div")`
 
   ::before {
     content: "";
-    background: url("../../../assets/images/burgerBackground.jpg")
-      rgba(0, 0, 0, 0.7);
+    /* background: url("../../../assets/images/burgerBackground.jpg") */
+    background-image: url(${backgroundImage});
+    background-color: rgba(0, 0, 0, 0.7);
     background-size: cover;
     background-position: center;
     //opacity du background

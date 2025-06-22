@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "../../../theme/index.js";
 import { CgProfile } from "react-icons/cg";
 import { FiArrowRight } from "react-icons/fi";
 import { BsExclamationSquareFill } from "react-icons/bs";

@@ -4,9 +4,9 @@ import styled from "styled-components";
 export default function Logo() {
   return (
     <LogoStyled>
-      <p>CRAZEE</p>
+      <h1>CRAZEE</h1>
       <img src={logoOrange} alt="logo" />
-      <p>BURGER</p>
+      <h1>BURGER</h1>
     </LogoStyled>
   );
 }
