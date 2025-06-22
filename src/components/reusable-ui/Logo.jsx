@@ -1,5 +1,4 @@
-import logoOrange from "../../../assets/images/logoOrange.png";
-import { theme } from "../../../theme/index.js";
+import logoOrange from "../../assets/images/logoOrange.png";
 import styled from "styled-components";
 
 export default function Logo() {
