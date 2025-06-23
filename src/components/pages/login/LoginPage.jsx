@@ -20,6 +20,8 @@ export default function LoginPage() {
 
 const LoginPageStyled = styled("div")`
   position: relative;
+  overflow: hidden;
+  min-height: 100dvh;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -42,5 +44,16 @@ const LoginPageStyled = styled("div")`
     left: 0;
     right: 0;
     bottom: 0;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    box-sizing: border-box;
   }
 `;

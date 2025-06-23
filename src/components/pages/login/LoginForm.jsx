@@ -52,11 +52,11 @@ const LoginFormStyled = styled("form")`
   min-width: 400px;
   margin: 0px auto;
   padding: 2.5rem 2rem;
-  border-radius: 5px;
+  border-radius: ${theme.borderRadius.round};
   font-family: "Amatic SC", cursive;
 
   hr {
-    border: 1px solid #f56a2c;
+    border: 1px solid ${theme.colors.primary};
     margin-bottom: 40px;
   }
   h1 {
