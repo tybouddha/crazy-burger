@@ -43,14 +43,4 @@ const LoginPageStyled = styled("div")`
     right: 0;
     bottom: 0;
   }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: transparent;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
 `;
