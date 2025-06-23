@@ -21,11 +21,6 @@ const InputStyled = styled("div")`
   align-items: center;
   padding: 18px 24px;
   margin: 18px 0;
-  .icon {
-    font-size: ${theme.fonts.P0};
-    margin-right: 8px;
-    color: ${theme.colors.greySemiDark};
-  }
   input {
     border: none;
     font-size: ${theme.fonts.P0};
