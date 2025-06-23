@@ -1,31 +1,28 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
-// import { BsExclamationSquareFill } from "react-icons/bs";
+import { BsPersonCircle } from "react-icons/bs";
+
+import TextInput from "./TextInput";
 import { theme } from "../../../theme";
 
 export default function LoginForm() {
   //state
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
-  const [hasError, setHasError] = useState(false);
 
   //comportements
   const handleSubmit = (event) => {
     event.preventDefault();
-    setHasError(false);
     navigate(`/order/${inputValue}`, { replace: true });
     setInputValue("");
   };
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
-    if (hasError && event.target.value.trim() !== "") {
-      setHasError(false);
-    }
   };
+
   //Render
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
@@ -34,16 +31,14 @@ export default function LoginForm() {
         <hr />
         <h2> Connectez-vous</h2>
       </div>
-      <div className="input-with-icon">
-        <BsPersonCircle className="icon" />
-        <input
-          value={inputValue}
-          type="text"
-          placeholder="Entrez votre prénom"
-          onChange={handleChange}
-          required
-        ></input>
-      </div>
+      <TextInput
+        value={inputValue}
+        onChange={handleChange}
+        placeholder={"Entrez votre prénom"}
+        required
+        Icon={<BsPersonCircle className="icon" />}
+      />
+
       <button className="button-with-icon">
         <span>Accéder à mon espace</span>
         <IoChevronForward />
@@ -74,30 +69,7 @@ const LoginFormStyled = styled("form")`
     color: ${theme.colors.white};
     font-size: ${theme.fonts.P4};
   }
-  .input-with-icon {
-    background-color: ${theme.colors.white};
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    padding: 18px 24px;
-    margin: 18px 0;
-    .icon {
-      font-size: ${theme.fonts.P0};
-      margin-right: 8px;
-      color: ${theme.colors.greySemiDark};
-    }
-    input {
-      border: none;
-      font-size: ${theme.fonts.P0};
-      color: ${theme.colors.dark};
-      background: ${theme.colors.white};
-      width: 100%;
-    }
-    &::placeholder {
-      background: ${theme.colors.white};
-      color: ${theme.colors.greyLight};
-    }
-  }
+
   .button-with-icon {
     width: 100%;
     display: inline-flex;
