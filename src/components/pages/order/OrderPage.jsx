@@ -1,28 +1,20 @@
 import styled from "styled-components";
-import { useNavigate, useParams } from "react-router-dom";
+import Navbar from "./Navbar";
+import Main from "./Main";
+import { useParams } from "react-router-dom";
 
 export default function OrderPage() {
   //state
-  const navigate = useNavigate();
   const { username } = useParams();
 
   //comportements
-  const handleClick = () => {
-    navigate("/", { replace: true });
-  };
+
   //render
   return (
     <OrderPageStyled>
       <div className="container">
-        <div className="navbar">
-          <div className="left-side"></div>
-          <div className="right-side">
-            <h1>Bonjour {username}</h1>
-            <br />
-            <button onClick={handleClick}>Déconnexion</button>
-          </div>
-        </div>
-        <div className="main"></div>
+        <Navbar username={username} />
+        <Main />
       </div>
     </OrderPageStyled>
   );
@@ -43,13 +35,5 @@ const OrderPageStyled = styled.div`
     border-radius: 0px 0px 15px 15px;
     height: 95vh;
     width: 95vw;
-  }
-  .navbar {
-    border: 1px solid red;
-    height: 10vh;
-  }
-  .main {
-    //pour que le composant prenne la place qui reste
-    flex: 1;
   }
 `;
