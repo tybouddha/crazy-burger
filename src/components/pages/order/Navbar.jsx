@@ -18,15 +18,10 @@ export default function Navbar({ username }) {
 
 const NavbarStyled = styled("nav")`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-
-  border: 1px solid red;
+  background: ${theme.colors.white};
   height: 10vh;
-  color: ${theme.colors.dark};
   padding: 0 20px;
-  .logo {
-    width: 240px;
-    border: 1px solid green;
-  }
+  border-top-left-radius: ${theme.borderRadius.extraRound};
+  border-top-right-radius: ${theme.borderRadius.extraRound};
 `;

@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import { theme } from "../../../theme";
 
 export default function Main() {
-  return <MainStyled>Main</MainStyled>;
+  return <MainStyled></MainStyled>;
 }
 
 const MainStyled = styled("div")`
   //pour que le composant prenne la place qui reste
   flex: 1;
-  border: 1px solid pink;
+  background: ${theme.colors.background_white};
+
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
 `;

@@ -14,10 +14,7 @@ export default function NavbarRightSide({ username }) {
 }
 
 const NavbarRightSideStyled = styled("div")`
-  border: 1px solid blue;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 10vh;
+  padding-right: 50px;
 `;
