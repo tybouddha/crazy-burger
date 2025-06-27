@@ -8,7 +8,9 @@ export default function Navbar({ username }) {
 
   return (
     <NavbarStyled>
-      <Logo />
+      <div className="logo">
+        <Logo />
+      </div>
       <NavbarRightSide username={username} />
     </NavbarStyled>
   );
@@ -22,13 +24,9 @@ const NavbarStyled = styled("nav")`
   border: 1px solid red;
   height: 10vh;
   color: ${theme.colors.dark};
-
-  /* .left-side {
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 0 20px;
+  .logo {
     width: 240px;
-    height: 10vh;
-  } */
+    border: 1px solid green;
+  }
 `;
