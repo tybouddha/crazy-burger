@@ -22,7 +22,7 @@ export default function OrderPage() {
 }
 
 const OrderPageStyled = styled.div`
-  background: orange;
+  background: ${theme.colors.primary};
   display: flex;
   flex-direction: column;
   justify-content: center;
