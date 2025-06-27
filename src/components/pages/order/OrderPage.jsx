@@ -31,10 +31,6 @@ const OrderPageStyled = styled.div`
   width: 100vw;
 
   .container {
-    background: #f5f5f7;
-    border-radius: 0px 0px 15px 15px;
-    box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
-
     height: 95vh;
     width: 95vw;
     border-top-left-radius: ${theme.borderRadius.extraRound};
