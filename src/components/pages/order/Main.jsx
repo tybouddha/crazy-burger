@@ -22,16 +22,17 @@ export default function Main() {
   //affichage
   return (
     <MainStyled>
-      <div className="products-container">
+      <div className="basket"></div>
+      <div className="menu">
         <div className="card">
           {/* <img src={product.picture} alt="image" className="image" />
           <span>{product.title}</span>
           <span>{product.price}</span> */}
           <div className="picture">picture</div>
 
-          <div className="info">
+          <div className="info-text">
             <div className="title">title</div>
-            <div className="price-and-button">
+            <div className="description">
               <div className="price">price</div>
               <div className="button">button</div>
             </div>
@@ -53,7 +54,7 @@ const MainStyled = styled("div")`
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
 
-  .products-container {
+  .menu {
     border: 1px solid blue;
     padding: 50px 92.5px;
   }
@@ -75,7 +76,7 @@ const MainStyled = styled("div")`
     height: 145px; */
   }
 
-  .info {
+  .info-text {
     flex-basis: 40%;
     border: 3px solid turquoise;
     display: flex;
@@ -83,12 +84,12 @@ const MainStyled = styled("div")`
 
     .title {
       background: blue;
-      flex-basis: 50%;
+      flex-basis: 40%;
     }
 
-    .price-and-button {
+    .description {
       background: pink;
-      flex-basis: 50%;
+      flex-basis: 60%;
       display: flex;
 
       .price {
