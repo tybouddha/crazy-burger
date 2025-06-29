@@ -1,33 +1,39 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { useState } from "react";
-
+import { fakeMenu1 } from "../../../../fakeData/fakeMenu";
+import {
+  formatPrice,
+  replaceFrenchCommaWithDot,
+} from "../../../../utils/maths";
 export default function Menu() {
   //state
-  const product = {
-    id: 1,
-    title: "Burger",
-    price: 5.6,
-    picture: "/images/logoOrange.png",
-  };
-  const [products, setProducts] = useState(fakeMenu);
+
+  const [products, setProducts] = useState(fakeMenu1);
   //comportement
+  //affichage
   return (
     <MenuStyled>
-      <div className="card">
-        {/* <img src={product.picture} alt="image" className="image" />
+      {products.map((product) => (
+        <div key={product.id} className="card">
+          {/* <img src={product.picture} alt="image" className="image" />
           <span>{product.title}</span>
           <span>{product.price}</span> */}
-        <div className="picture">picture</div>
+          <div className="picture">
+            <img src={product.imageSource} alt="image" />
+          </div>
 
-        <div className="info-text">
-          <div className="title">title</div>
-          <div className="description">
-            <div className="price">price</div>
-            <div className="button">button</div>
+          <div className="info-text">
+            <div className="title">
+              <div>{product.title}</div>
+            </div>
+            <div className="description">
+              <div className="price">{product.price}</div>
+              <div className="button">button</div>
+            </div>
           </div>
         </div>
-      </div>
+      ))}
     </MenuStyled>
   );
 }
@@ -35,6 +41,9 @@ export default function Menu() {
 const MenuStyled = styled("div")`
   border: 1px solid blue;
   padding: 50px 92.5px;
+  display: grid;
+  grid-row-gap: 60px;
+  grid-template-columns: repeat(4, 1fr);
 
   .card {
     border: 1px solid red;
@@ -52,6 +61,13 @@ const MenuStyled = styled("div")`
     /* width: 200px;
     height: 145px; */
   }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 10px;
+  }
 
   .info-text {
     flex-basis: 40%;
@@ -62,6 +78,9 @@ const MenuStyled = styled("div")`
     .title {
       background: blue;
       flex-basis: 40%;
+      font-size: ${theme.fonts.P4};
+      font-family: "Amatic SC", cursive;
+      font-weight: ${theme.weights.bold};
     }
 
     .description {
@@ -72,6 +91,7 @@ const MenuStyled = styled("div")`
       .price {
         flex-basis: 50%;
         background: green;
+        color: black;
       }
 
       .button {

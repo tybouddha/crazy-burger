@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import Menu from "./Menu";
+import Menu from "../Main/Menu";
 
 export default function Main() {
   //state
-
   //comportements
   //affichage
   return (
