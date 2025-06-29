@@ -11,6 +11,7 @@ export default function Menu() {
 
   const [products, setProducts] = useState(fakeMenu1);
   //comportement
+
   //affichage
   return (
     <MenuStyled>
@@ -28,7 +29,9 @@ export default function Menu() {
               <div>{product.title}</div>
             </div>
             <div className="description">
-              <div className="price">{product.price}</div>
+              <div className="price">
+                {formatPrice(replaceFrenchCommaWithDot(product.price))}
+              </div>
               <div className="button">button</div>
             </div>
           </div>
