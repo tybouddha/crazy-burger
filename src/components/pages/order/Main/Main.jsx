@@ -23,7 +23,7 @@ export default function Main() {
   //affichage
   return (
     <MainStyled>
-      <div className="basket"></div>
+      {/* <div className="basket"></div> */}
       <Menu />
     </MainStyled>
   );
@@ -39,4 +39,7 @@ const MainStyled = styled("div")`
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  //for basket
+  display: grid;
+  grid-template-columns: 1fr;
 `;
