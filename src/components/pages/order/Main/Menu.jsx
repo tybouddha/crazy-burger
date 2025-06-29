@@ -6,6 +6,8 @@ import {
   formatPrice,
   replaceFrenchCommaWithDot,
 } from "../../../../utils/maths";
+import PrimaryButton from "../../../reusable-ui/PrimaryButton";
+
 export default function Menu() {
   //state
 
@@ -32,7 +34,8 @@ export default function Menu() {
               <div className="price">
                 {formatPrice(replaceFrenchCommaWithDot(product.price))}
               </div>
-              <div className="button">button</div>
+              <PrimaryButton label="Ajouter" className={"button"} />
+              {/* <div className="button">button</div> */}
             </div>
           </div>
         </div>
@@ -43,10 +46,13 @@ export default function Menu() {
 
 const MenuStyled = styled("div")`
   border: 1px solid blue;
-  padding: 50px 92.5px;
+  /* padding: 50px 92.5px; */
+  padding: 50px 50px 150px;
   display: grid;
   grid-row-gap: 60px;
   grid-template-columns: repeat(4, 1fr);
+  background: #f5f5f7;
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 
   .card {
     border: 1px solid red;
@@ -56,11 +62,12 @@ const MenuStyled = styled("div")`
     height: 330px;
     color: ${theme.colors.dark};
     padding: 10px 20px 10px;
+    box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   }
 
   .picture {
     flex-basis: 60%;
-    background: red;
+    /* background: red; */
     /* width: 200px;
     height: 145px; */
   }
@@ -79,7 +86,7 @@ const MenuStyled = styled("div")`
     flex-direction: column;
 
     .title {
-      background: blue;
+      /* background: blue; */
       flex-basis: 40%;
       font-size: ${theme.fonts.P4};
       font-family: "Amatic SC", cursive;
@@ -87,19 +94,24 @@ const MenuStyled = styled("div")`
     }
 
     .description {
-      background: pink;
+      /* background: pink; */
       flex-basis: 60%;
       display: flex;
+      margin-top: 14.25px;
+      margin-bottom: 14.25px;
 
       .price {
+        display: flex;
+        align-items: center;
         flex-basis: 50%;
-        background: green;
-        color: black;
+        /* background: green; */
+        color: ${theme.colors.primary};
       }
 
       .button {
         flex-basis: 50%;
-        background: yellow;
+        /* background: transparent; */
+        font-size: ${theme.fonts.XS};
       }
     }
   }
