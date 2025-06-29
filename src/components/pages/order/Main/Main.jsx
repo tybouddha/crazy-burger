@@ -1,24 +1,10 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import { useState } from "react";
 import Menu from "./Menu";
 
 export default function Main() {
   //state
-  const product = {
-    id: 1,
-    title: "Burger",
-    price: 5.6,
-    picture: "/images/logoOrange.png",
-  };
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      title: "Burger",
-      price: 5.6,
-      picture: "/images/logoOrange.png",
-    },
-  ]);
+
   //comportements
   //affichage
   return (

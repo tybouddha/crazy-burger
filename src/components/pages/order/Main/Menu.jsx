@@ -1,7 +1,17 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import { useState } from "react";
 
 export default function Menu() {
+  //state
+  const product = {
+    id: 1,
+    title: "Burger",
+    price: 5.6,
+    picture: "/images/logoOrange.png",
+  };
+  const [products, setProducts] = useState(fakeMenu);
+  //comportement
   return (
     <MenuStyled>
       <div className="card">
