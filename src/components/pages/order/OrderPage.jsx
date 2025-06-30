@@ -24,17 +24,17 @@ export default function OrderPage() {
 
 const OrderPageStyled = styled.div`
   background: ${theme.colors.primary};
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
 
   .container {
+    background: red;
     height: 95vh;
-    width: 95vw;
-    border-top-left-radius: ${theme.borderRadius.extraRound};
-    border-top-right-radius: ${theme.borderRadius.extraRound};
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: ${theme.borderRadius.extraRound};
   }
 `;

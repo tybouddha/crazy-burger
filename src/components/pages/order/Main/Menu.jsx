@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { useState } from "react";
-import { fakeMenu1 } from "../../../../fakeData/fakeMenu";
+import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import {
   formatPrice,
   replaceFrenchCommaWithDot,
@@ -11,7 +11,7 @@ import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 export default function Menu() {
   //state
 
-  const [products, setProducts] = useState(fakeMenu1);
+  const [products, setProducts] = useState(fakeMenu2);
   //comportement
 
   //affichage
@@ -19,11 +19,8 @@ export default function Menu() {
     <MenuStyled>
       {products.map((product) => (
         <div key={product.id} className="card">
-          {/* <img src={product.picture} alt="image" className="image" />
-          <span>{product.title}</span>
-          <span>{product.price}</span> */}
           <div className="picture">
-            <img src={product.imageSource} alt="image" />
+            <img src={product.imageSource} alt={product.title} />
           </div>
 
           <div className="info-text">
@@ -34,8 +31,9 @@ export default function Menu() {
               <div className="price">
                 {formatPrice(replaceFrenchCommaWithDot(product.price))}
               </div>
-              <PrimaryButton label="Ajouter" className={"button"} />
-              {/* <div className="button">button</div> */}
+              <div className="button">
+                <PrimaryButton label="Ajouter" className={"primary-button"} />
+              </div>
             </div>
           </div>
         </div>
@@ -45,73 +43,85 @@ export default function Menu() {
 }
 
 const MenuStyled = styled("div")`
-  border: 1px solid blue;
-  /* padding: 50px 92.5px; */
-  padding: 50px 50px 150px;
+  background: ${theme.colors.background_white};
   display: grid;
-  grid-row-gap: 60px;
   grid-template-columns: repeat(4, 1fr);
-  background: #f5f5f7;
+  grid-row-gap: 60px;
+  padding: 50px 50px 150px;
+  justify-items: center;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 
   .card {
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    width: 240px;
-    height: 330px;
-    color: ${theme.colors.dark};
-    padding: 10px 20px 10px;
+    background: ${theme.colors.white};
+    width: 200px;
+    height: 300px;
+    display: grid;
+    grid-template-rows: 65% 1fr;
+    padding: 20px;
+    padding-bottom: 10px;
     box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+    border-radius: ${theme.borderRadius.extraRound};
   }
-
   .picture {
-    flex-basis: 60%;
-    /* background: red; */
-    /* width: 200px;
-    height: 145px; */
-  }
-  img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 10px;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   .info-text {
-    flex-basis: 40%;
-    border: 3px solid turquoise;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    padding: 5px;
 
     .title {
-      /* background: blue; */
-      flex-basis: 40%;
-      font-size: ${theme.fonts.P4};
+      margin: auto 0;
+      font-size: ${theme.fonts.size.P4};
+      position: relative;
+      bottom: 10px;
+      font-weight: ${theme.fonts.weights.bold};
+      color: ${theme.colors.dark};
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+      text-overflow: ellipsis;
       font-family: "Amatic SC", cursive;
-      font-weight: ${theme.weights.bold};
     }
 
     .description {
-      /* background: pink; */
-      flex-basis: 60%;
-      display: flex;
-      margin-top: 14.25px;
-      margin-bottom: 14.25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
       .price {
         display: flex;
+        justify-content: flex-start;
         align-items: center;
-        flex-basis: 50%;
-        /* background: green; */
+        font-weight: ${theme.fonts.weights.medium};
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: ${theme.fonts.weights.medium};
         color: ${theme.colors.primary};
       }
 
       .button {
-        flex-basis: 50%;
-        /* background: transparent; */
-        font-size: ${theme.fonts.XS};
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: ${theme.fonts.size.P1};
+
+        .primary-button {
+          font-size: ${theme.fonts.size.XS};
+          cursor: pointer;
+          padding: 12px;
+        }
       }
     }
   }
