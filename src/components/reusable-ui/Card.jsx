@@ -11,9 +11,8 @@ export default function Card({ title, imageSource, price, id }) {
       </div>
 
       <div className="info-text">
-        <div className="title">
-          <div>{title}</div>
-        </div>
+        <div className="title">{title}</div>
+
         <div className="description">
           <div className="price">
             {formatPrice(replaceFrenchCommaWithDot(price))}
@@ -56,18 +55,18 @@ const CardStyled = styled("div")`
     padding: 5px;
 
     .title {
-      margin: auto 0;
-      font-size: ${theme.fonts.size.P4};
       position: relative;
+      margin: auto 0;
       bottom: 10px;
+      width: 100%;
+      font-family: "Amatic SC", cursive;
+      font-size: ${theme.fonts.size.P4};
       font-weight: ${theme.fonts.weights.bold};
       color: ${theme.colors.dark};
       text-align: left;
       white-space: nowrap;
       overflow: hidden;
-      width: 100%;
       text-overflow: ellipsis;
-      font-family: "Amatic SC", cursive;
     }
 
     .description {
