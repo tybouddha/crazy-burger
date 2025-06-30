@@ -23,7 +23,7 @@ const InputStyled = styled("div")`
   margin: 18px 0;
   input {
     border: none;
-    font-size: ${theme.fonts.P0};
+    font-size: ${theme.fonts.size.P0};
     color: ${theme.colors.dark};
     background: ${theme.colors.white};
     width: 100%;

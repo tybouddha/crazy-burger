@@ -61,15 +61,15 @@ const LoginFormStyled = styled("form")`
   }
   h1 {
     color: ${theme.colors.white};
-    font-size: ${theme.fonts.P5};
+    font-size: ${theme.fonts.size.P5};
   }
   h2 {
     margin: 20px 10px 10px;
     color: ${theme.colors.white};
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.size.P4};
   }
   .iconInput {
-    font-size: ${theme.fonts.P0};
+    font-size: ${theme.fonts.size.P0};
     margin-right: 8px;
     color: ${theme.colors.greySemiDark};
   }
@@ -77,7 +77,7 @@ const LoginFormStyled = styled("form")`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: ${theme.fonts.P0};
+    font-size: ${theme.fonts.size.P0};
     margin-left: 10px;
   }
 `;
