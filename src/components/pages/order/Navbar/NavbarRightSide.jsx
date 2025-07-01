@@ -31,7 +31,7 @@ export default function NavbarRightSide({ username }) {
       />
       <ToastContainer className="toaster" bodyClassName="body-toast" />
 
-      <Profil username={username} />
+      <Profil username={username} className={"profile"} />
     </NavbarRightSideStyled>
   );
 }
@@ -40,6 +40,10 @@ const NavbarRightSideStyled = styled("div")`
   display: flex;
   align-items: center;
   padding-right: 50px;
+
+  .profile {
+    padding-left: 50px;
+  }
 
   .toaster {
     max-width: 300px;
