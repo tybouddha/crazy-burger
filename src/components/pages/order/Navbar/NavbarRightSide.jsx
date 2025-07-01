@@ -4,22 +4,27 @@ import ToggleButton from "../../../reusable-ui/ToggleButton";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 import { theme } from "../../../../theme";
+import { useState } from "react";
 
 export default function NavbarRightSide({ username }) {
   //state
+  const [isAdmin, setIsAdmin] = useState(false);
   //comportement
   const handleClick = () => {
-    toast.info("Mode admin activé", {
-      // icon: <FaUserSecret size={30} />,
-      theme: "dark",
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    if (!isAdmin) {
+      toast.info("Mode admin activé", {
+        // icon: <FaUserSecret size={30} />,
+        theme: "dark",
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    setIsAdmin(!isAdmin);
   };
   //render
   return (
