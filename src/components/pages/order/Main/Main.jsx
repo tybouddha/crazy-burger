@@ -2,9 +2,13 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
 import AdminPanel from "../Admin/AdminPanel";
+import { useContext } from "react";
+import { IsAdminContext } from "../../../../context/IsAdminContext";
 
 export default function Main() {
   //state
+  const { isAdmin, setIsAdmin } = useContext(IsAdminContext);
+
   //comportements
   //affichage
   return (
@@ -12,7 +16,7 @@ export default function Main() {
       {/* <div className="basket">Basket</div> */}
       <div className="menu-and-admin">
         <Menu />
-        <AdminPanel />
+        {isAdmin && <AdminPanel />}
       </div>
     </MainStyled>
   );
