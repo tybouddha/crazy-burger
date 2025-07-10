@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Navbar from "./Navbar/Navbar";
 import Main from "./main/Main";
-import { useParams } from "react-router-dom";
 import { theme } from "../../../theme";
 import { useState } from "react";
 import { IsAdminContext } from "../../../context/IsAdminContext";
