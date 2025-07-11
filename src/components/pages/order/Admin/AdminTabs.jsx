@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FiChevronDown } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 
@@ -10,7 +10,7 @@ export default function AdminTabs() {
   return (
     <AdminTabsStyled>
       <Tab Icon={<FiChevronDown />} className={"up-down"} />
-      <Tab
+      {/* <Tab
         Icon={<AiOutlinePlus />}
         label="Ajouter un produit"
         className={"ajouter"}
@@ -19,15 +19,21 @@ export default function AdminTabs() {
         Icon={<MdModeEditOutline />}
         label="Modifier un produit"
         className={"modifier"}
-      />
+      /> */}
     </AdminTabsStyled>
   );
 }
 
 const AdminTabsStyled = styled("div")`
   display: flex;
-  height: 44px;
-  width: 1440px;
-  color: ${theme.colors.greySemiDark};
-  padding-left: 71px;
+  padding: 0 20px;
+
+  gap: 1px;
+
+  position: relative;
+  left: 5%;
+
+  :hover {
+    border-bottom: 2px solid ${theme.colors.white};
+  }
 `;

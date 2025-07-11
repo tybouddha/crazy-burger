@@ -20,6 +20,6 @@ const AdminPanelStyled = styled("div")`
   left: 0;
   right: 0;
   height: 250px;
-  box-shadow: ${theme.shadows.subtle};
+  /* box-shadow: ${theme.shadows.subtle}; */
   border: 1px solid ${theme.colors.greyLight};
 `;
