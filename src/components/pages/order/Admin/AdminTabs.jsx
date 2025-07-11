@@ -17,10 +17,11 @@ export default function AdminTabs({ setIsCollapsed, isCollapsed }) {
     <AdminTabsStyled>
       <Tab
         Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        label=""
         className={isCollapsed ? "is-active" : ""}
         onClick={() => setIsCollapsed(!isCollapsed)}
       />
-      {/* <Tab
+      <Tab
         Icon={<AiOutlinePlus />}
         label="Ajouter un produit"
         className={"ajouter"}
@@ -29,7 +30,7 @@ export default function AdminTabs({ setIsCollapsed, isCollapsed }) {
         Icon={<MdModeEditOutline />}
         label="Modifier un produit"
         className={"modifier"}
-      /> */}
+      />
     </AdminTabsStyled>
   );
 }
@@ -37,8 +38,6 @@ export default function AdminTabs({ setIsCollapsed, isCollapsed }) {
 const AdminTabsStyled = styled("div")`
   display: flex;
   padding: 0 20px;
-
-  gap: 1px;
 
   position: relative;
   left: 5%;
@@ -51,5 +50,9 @@ const AdminTabsStyled = styled("div")`
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
+  }
+
+  button {
+    margin-left: 1px;
   }
 `;
