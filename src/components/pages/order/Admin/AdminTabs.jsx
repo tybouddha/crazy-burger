@@ -6,10 +6,20 @@ import { MdModeEditOutline } from "react-icons/md";
 import { theme } from "../../../../theme";
 import Tab from "../../../reusable-ui/Tab";
 
-export default function AdminTabs() {
+export default function AdminTabs({ setIsCollapsed, isCollapsed }) {
+  //state
+
+  //comportements
+
+  //affichage
+
   return (
     <AdminTabsStyled>
-      <Tab Icon={<FiChevronDown />} className={"up-down"} />
+      <Tab
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        className={isCollapsed ? "is-active" : ""}
+        onClick={() => setIsCollapsed(!isCollapsed)}
+      />
       {/* <Tab
         Icon={<AiOutlinePlus />}
         label="Ajouter un produit"
@@ -35,5 +45,11 @@ const AdminTabsStyled = styled("div")`
 
   :hover {
     border-bottom: 2px solid ${theme.colors.white};
+  }
+
+  .is-active {
+    background-color: ${theme.colors.background_dark};
+    color: ${theme.colors.white};
+    border-color: ${theme.colors.background_dark};
   }
 `;
