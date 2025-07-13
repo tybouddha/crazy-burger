@@ -1,11 +1,19 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import { useContext } from "react";
+import { IsAdminContext } from "../../../../context/IsAdminContext";
 
 export default function AdminPanel() {
+  //state
+  const { isEditTabSelected, isAddTabSelected } = useContext(IsAdminContext);
+
+  //comportements
+  //affichage
   return (
     <AdminPanelStyled>
       <div className="panel">
-        <span>AdminPanel</span>
+        {isAddTabSelected && "Ajouter un produit"}
+        {isEditTabSelected && "Modifier un produit"}
       </div>
     </AdminPanelStyled>
   );
@@ -19,7 +27,7 @@ const AdminPanelStyled = styled("div")`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 250px;
+  height: 251px;
   /* box-shadow: ${theme.shadows.subtle}; */
   border: 1px solid ${theme.colors.greyLight};
 `;

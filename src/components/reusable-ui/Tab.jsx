@@ -46,10 +46,6 @@ const TabStyled = styled("button")`
     text-decoration: underline;
   }
 
-  &:active {
-    background-color: ${theme.colors.background_dark};
-  }
-
   .icon {
     display: flex;
   }

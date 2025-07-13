@@ -9,9 +9,21 @@ export default function OrderPage() {
   //state
 
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isAddTabSelected, setIsAddTabSelected] = useState(true);
+  const [isEditTabSelected, setIsEditTabSelected] = useState(false);
 
   //comportements
-  const isAdminContext = { isAdmin, setIsAdmin };
+  const isAdminContext = {
+    isAdmin,
+    setIsAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    setIsEditTabSelected,
+    setIsAddTabSelected,
+    isEditTabSelected,
+    isAddTabSelected,
+  };
 
   //render
   return (
