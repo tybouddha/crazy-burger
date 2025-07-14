@@ -30,28 +30,39 @@ export default function AdminTabs() {
       setIsAddTabSelected(false);
     }
   };
+
+  const TabCongig = [
+    {
+      Icon: isCollapsed ? <FiChevronUp /> : <FiChevronDown />,
+      label: "",
+      onClick: () => setIsCollapsed(!isCollapsed),
+      className: isCollapsed ? "is-active" : "",
+    },
+    {
+      Icon: <AiOutlinePlus />,
+      label: "Ajouter un produit",
+      onClick: () => selectTab("add"),
+      className: isAddTabSelected ? "is-active" : "",
+    },
+    {
+      Icon: <MdModeEditOutline />,
+      label: "Modifier un produit",
+      onClick: () => selectTab("edit"),
+      className: isEditTabSelected ? "is-active" : "",
+    },
+  ];
   //affichage
 
   return (
     <AdminTabsStyled isCollapsed={isCollapsed}>
-      <Tab
-        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
-        label=""
-        className={isCollapsed ? "is-active" : ""}
-        onClick={() => setIsCollapsed(!isCollapsed)}
-      />
-      <Tab
-        Icon={<AiOutlinePlus />}
-        label="Ajouter un produit"
-        onClick={() => selectTab("add")}
-        className={isAddTabSelected ? "is-active" : ""}
-      />
-      <Tab
-        Icon={<MdModeEditOutline />}
-        label="Modifier un produit"
-        onClick={() => selectTab("edit")}
-        className={isEditTabSelected ? "is-active" : ""}
-      />
+      {TabCongig.map((tab) => (
+        <Tab
+          Icon={tab.Icon}
+          label={tab.label}
+          onClick={tab.onClick}
+          className={tab.className}
+        />
+      ))}
     </AdminTabsStyled>
   );
 }
