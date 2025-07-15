@@ -5,7 +5,7 @@ import { theme } from "../../../../theme";
 import Tab from "../../../reusable-ui/Tab";
 import { IsAdminContext } from "../../../../context/IsAdminContext";
 import { useContext } from "react";
-import { getTabsCongig } from "./getTabsConfig";
+import { getTabsConfig } from "./getTabsConfig.jsx";
 
 export default function AdminTabs() {
   //state
@@ -16,7 +16,7 @@ export default function AdminTabs() {
     setCurrentTabSelected,
   } = useContext(IsAdminContext);
 
-  const tabs = getTabsCongig(currentTabSelected);
+  const tabs = getTabsConfig(currentTabSelected);
   //comportements
 
   const selectTab = (tabSelected) => {
@@ -27,7 +27,7 @@ export default function AdminTabs() {
   //affichage
 
   return (
-    <AdminTabsStyled isCollapsed={isCollapsed}>
+    <AdminTabsStyled $isCollapsed={isCollapsed}>
       <Tab
         Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         label={""}
@@ -39,7 +39,7 @@ export default function AdminTabs() {
           Icon={tab.Icon}
           label={tab.label}
           onClick={() => selectTab(tab.index)}
-          className={tab.className}
+          className={currentTabSelected === tab.index ? "is-active" : ""}
         />
       ))}
     </AdminTabsStyled>
@@ -52,7 +52,7 @@ const AdminTabsStyled = styled("div")`
 
   position: absolute;
   left: 5%;
-  bottom: ${({ isCollapsed }) => (isCollapsed ? "0" : "250px")};
+  bottom: ${({ $isCollapsed }) => ($isCollapsed ? "0" : "250px")};
   transition: bottom 0.3s ease;
 
   :hover {

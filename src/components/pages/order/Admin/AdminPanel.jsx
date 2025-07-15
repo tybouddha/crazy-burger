@@ -2,18 +2,22 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { useContext } from "react";
 import { IsAdminContext } from "../../../../context/IsAdminContext";
+import { getTabsConfig, getTabSelected } from "./getTabsConfig.jsx";
 
 export default function AdminPanel() {
   //state
-  const { isEditTabSelected, isAddTabSelected } = useContext(IsAdminContext);
-
+  const { currentTabSelected } = useContext(IsAdminContext);
+  const tabs = getTabsConfig(currentTabSelected);
+  const tabSelected = getTabSelected(tabs, currentTabSelected);
   //comportements
   //affichage
   return (
     <AdminPanelStyled>
       <div className="panel">
-        {isAddTabSelected && "Ajouter un produit"}
-        {isEditTabSelected && "Modifier un produit"}
+        {/* Ajout d'une verif pour tabSelected est undefined */}
+        {tabSelected &&
+          currentTabSelected === tabSelected.index &&
+          tabSelected.label}
       </div>
     </AdminPanelStyled>
   );
