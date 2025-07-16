@@ -1,15 +1,23 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import Menu from "../Main/Menu";
+import Menu from "./Menu";
+import Admin from "../Admin/Admin";
+import { useContext } from "react";
+import { IsAdminContext } from "../../../../context/IsAdminContext";
 
 export default function Main() {
   //state
+  const { isAdmin, setIsAdmin } = useContext(IsAdminContext);
+
   //comportements
   //affichage
   return (
     <MainStyled>
-      {/* <div className="basket"></div> */}
-      <Menu />
+      {/* <div className="basket">Basket</div> */}
+      <div className="menu-and-admin">
+        <Menu />
+        {isAdmin && <Admin />}
+      </div>
     </MainStyled>
   );
 }
@@ -18,6 +26,7 @@ const MainStyled = styled("div")`
   background: ${theme.colors.background_white};
   flex: 1; // or you can also use this : height: calc(95vh - 10vh);
 
+  height: calc(95vh - 10vh);
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
@@ -25,5 +34,16 @@ const MainStyled = styled("div")`
   display: grid;
   grid-template-columns: 1fr;
 
-  overflow-y: scroll;
+  /* .basket {
+    background: pink;
+    border: 1px solid blue;
+  } */
+
+  .menu-and-admin {
+    position: relative;
+    overflow-y: hidden;
+    display: grid;
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  }
 `;

@@ -1,24 +1,42 @@
 import styled from "styled-components";
 import Navbar from "./Navbar/Navbar";
-import Main from "./Main/Main";
-import { useParams } from "react-router-dom";
+import Main from "./main/Main";
 import { theme } from "../../../theme";
+import { useState } from "react";
+import { IsAdminContext } from "../../../context/IsAdminContext";
 
 export default function OrderPage() {
   //state
 
-  const { username } = useParams();
-
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isAddTabSelected, setIsAddTabSelected] = useState(true);
+  const [isEditTabSelected, setIsEditTabSelected] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
   //comportements
+  const isAdminContext = {
+    isAdmin,
+    setIsAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    setIsEditTabSelected,
+    setIsAddTabSelected,
+    isEditTabSelected,
+    isAddTabSelected,
+    currentTabSelected,
+    setCurrentTabSelected,
+  };
 
   //render
   return (
-    <OrderPageStyled>
-      <div className="container">
-        <Navbar username={username} />
-        <Main />
-      </div>
-    </OrderPageStyled>
+    <IsAdminContext.Provider value={isAdminContext}>
+      <OrderPageStyled>
+        <div className="container">
+          <Navbar />
+          <Main />
+        </div>
+      </OrderPageStyled>
+    </IsAdminContext.Provider>
   );
 }
 

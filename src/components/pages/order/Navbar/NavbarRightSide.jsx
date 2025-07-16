@@ -3,11 +3,12 @@ import Profil from "./Profil";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import AdminToast from "../../../reusable-ui/AdminToast.jsx";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useContext } from "react";
+import { IsAdminContext } from "../../../../context/IsAdminContext.jsx";
 
-export default function NavbarRightSide({ username }) {
+export default function NavbarRightSide() {
   //state
-  const [isAdmin, setIsAdmin] = useState(false);
+  const { isAdmin, setIsAdmin } = useContext(IsAdminContext);
   //comportement
   const handleClick = () => {
     if (!isAdmin) {
@@ -29,12 +30,13 @@ export default function NavbarRightSide({ username }) {
   return (
     <NavbarRightSideStyled className="right-side">
       <ToggleButton
+        isChecked={isAdmin}
         labelIfUnchecked="Activer le mode admin"
         labelIfChecked="Désactiver le mode admin"
         onToggle={handleClick}
       />
 
-      <Profil username={username} className={"profile"} />
+      <Profil className={"profile"} />
       <AdminToast />
     </NavbarRightSideStyled>
   );

@@ -4,7 +4,7 @@ import { theme } from "../../../../theme";
 import NavbarRightSide from "./NavbarRightSide";
 import { reloadPage } from "../../../../utils/window";
 
-export default function Navbar({ username }) {
+export default function Navbar() {
   //state
 
   return (
@@ -12,7 +12,7 @@ export default function Navbar({ username }) {
       <div className="logo">
         <Logo className={"logo-order-page"} onClick={reloadPage} />
       </div>
-      <NavbarRightSide username={username} />
+      <NavbarRightSide />
     </NavbarStyled>
   );
 }
