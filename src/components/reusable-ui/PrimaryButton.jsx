@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { theme } from "../../theme"
+import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function PrimaryButton({ label, Icon, className }) {
   return (
@@ -7,7 +7,7 @@ export default function PrimaryButton({ label, Icon, className }) {
       <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyled>
-  )
+  );
 }
 
 const PrimaryButtonStyled = styled.button`
@@ -60,4 +60,4 @@ const PrimaryButtonStyled = styled.button`
       color: ${theme.colors.primary};
     }
   }
-`
+`;

@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { theme } from "../../theme"
+import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function Tab({ label, Icon, onClick, className }) {
   return (
@@ -7,7 +7,7 @@ export default function Tab({ label, Icon, onClick, className }) {
       {Icon && <div className="icon">{Icon}</div>}
       {label && <span className="label">{label}</span>}
     </TabStyled>
-  )
+  );
 }
 
 const TabStyled = styled.button`
@@ -47,4 +47,4 @@ const TabStyled = styled.button`
     border-bottom: 2px solid ${theme.colors.white};
     text-decoration: underline;
   }
-`
+`;

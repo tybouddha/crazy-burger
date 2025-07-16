@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { theme } from "../../theme"
+import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return (
@@ -7,7 +7,7 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
       {Icon && Icon}
       <input onChange={onChange} type="text" {...extraProps} />
     </InputStyled>
-  )
+  );
 }
 
 const InputStyled = styled.div`
@@ -38,4 +38,4 @@ const InputStyled = styled.div`
       color: ${theme.colors.greyMedium};
     }
   }
-`
+`;

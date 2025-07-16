@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { theme } from "../../theme"
-import PrimaryButton from "./PrimaryButton"
+import styled from "styled-components";
+import { theme } from "../../theme";
+import PrimaryButton from "./PrimaryButton";
 
 export default function Card({ title, imageSource, leftDescription }) {
   return (
@@ -18,7 +18,7 @@ export default function Card({ title, imageSource, leftDescription }) {
         </div>
       </div>
     </CardStyled>
-  )
+  );
 }
 
 const CardStyled = styled.div`
@@ -95,4 +95,4 @@ const CardStyled = styled.div`
       }
     }
   }
-`
+`;
