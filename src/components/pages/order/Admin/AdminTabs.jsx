@@ -1,43 +1,39 @@
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-
-import { theme } from "../../../../theme";
 import Tab from "../../../reusable-ui/Tab";
-import { IsAdminContext } from "../../../../context/IsAdminContext";
-import { useContext } from "react";
-import { getTabsConfig } from "./getTabsConfig.jsx";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { OrderContext } from "../../../../context/OrderContext";
+import { tabsConfig } from "./tabsConfig";
+import { theme } from "../../../../theme";
 
 export default function AdminTabs() {
-  //state
   const {
     isCollapsed,
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
-  } = useContext(IsAdminContext);
-
-  const tabs = getTabsConfig(currentTabSelected);
-  //comportements
+  } = useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
-    setIsCollapsed(false);
-    setCurrentTabSelected(tabSelected);
+    setIsCollapsed(false); // ouvre moi le panel dans tous les cas
+    setCurrentTabSelected(tabSelected); // réactualise l'onglet sélectionné
   };
 
-  //affichage
+  const tabs = tabsConfig();
 
+  // affichage
   return (
-    <AdminTabsStyled $isCollapsed={isCollapsed}>
+    <AdminTabsStyled>
       <Tab
         Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
-        label={""}
         onClick={() => setIsCollapsed(!isCollapsed)}
         className={isCollapsed ? "is-active" : ""}
       />
       {tabs.map((tab) => (
         <Tab
-          Icon={tab.Icon}
+          key={tab.index}
           label={tab.label}
+          Icon={tab.Icon}
           onClick={() => selectTab(tab.index)}
           className={currentTabSelected === tab.index ? "is-active" : ""}
         />
@@ -46,23 +42,14 @@ export default function AdminTabs() {
   );
 }
 
-const AdminTabsStyled = styled("div")`
+const AdminTabsStyled = styled.div`
   display: flex;
-  padding: 0 20px;
-
-  position: absolute;
-  left: 5%;
-  bottom: ${({ $isCollapsed }) => ($isCollapsed ? "0" : "250px")};
-  transition: bottom 0.3s ease;
-
-  :hover {
-    border-bottom: 2px solid ${theme.colors.white};
-  }
 
   .is-active {
-    background-color: ${theme.colors.background_dark};
+    background: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
+    border-bottom: 2px;
   }
 
   button {

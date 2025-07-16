@@ -18,31 +18,31 @@ const TabStyled = styled("button")`
   justify-content: center;
   align-items: center;
 
-  //position
-  position: relative;
-  left: 5%;
-  top: 1px;
-
   cursor: pointer;
 
   //fonts
   color: ${theme.colors.greySemiDark};
   font-size: ${theme.fonts.size.P0};
+  //position
+  position: relative;
+  left: 5%;
+  top: 1px;
 
-  background: ${theme.colors.white};
+  background: #ffffff;
   box-shadow: ${theme.shadows.subtle};
 
   //border
   border-width: 1px 1px 2px 1px;
   border-style: solid;
-  border-color: ${theme.colors.greyLight};
+  border-color: #e4e5e9;
 
   //border-radius
   border-top-left-radius: ${theme.borderRadius.round};
   border-top-right-radius: ${theme.borderRadius.round};
 
   //hover
-  span:hover {
+  :hover {
+    border-bottom: 2px solid ${theme.colors.white};
     text-decoration: underline;
   }
 

@@ -1,24 +1,19 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
-import { formatPrice, replaceFrenchCommaWithDot } from "../../utils/maths";
-import PrimaryButton from "../reusable-ui/PrimaryButton";
+import PrimaryButton from "./PrimaryButton";
 
-export default function Card({ title, imageSource, price, id }) {
+export default function Card({ title, imageSource, leftDescription }) {
   return (
-    <CardStyled key={id} className="card">
-      <div className="picture">
+    <CardStyled className="produit">
+      <div className="image">
         <img src={imageSource} alt={title} />
       </div>
-
-      <div className="info-text">
+      <div className="text-info">
         <div className="title">{title}</div>
-
         <div className="description">
-          <div className="price">
-            {formatPrice(replaceFrenchCommaWithDot(price))}
-          </div>
-          <div className="button">
-            <PrimaryButton label="Ajouter" className={"primary-button"} />
+          <div className="left-description">{leftDescription}</div>
+          <div className="right-description">
+            <PrimaryButton className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
@@ -26,7 +21,7 @@ export default function Card({ title, imageSource, price, id }) {
   );
 }
 
-const CardStyled = styled("div")`
+const CardStyled = styled.div`
   background: ${theme.colors.white};
   width: 200px;
   height: 300px;
@@ -34,9 +29,10 @@ const CardStyled = styled("div")`
   grid-template-rows: 65% 1fr;
   padding: 20px;
   padding-bottom: 10px;
-  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+  box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
-  .picture {
+
+  .image {
     width: 100%;
     height: auto;
     margin-top: 30px;
@@ -49,31 +45,31 @@ const CardStyled = styled("div")`
     }
   }
 
-  .info-text {
+  .text-info {
     display: grid;
     grid-template-rows: 30% 70%;
     padding: 5px;
 
     .title {
-      position: relative;
       margin: auto 0;
-      bottom: 10px;
-      width: 100%;
-      font-family: "Amatic SC", cursive;
       font-size: ${theme.fonts.size.P4};
+      position: relative;
+      bottom: 10px;
       font-weight: ${theme.fonts.weights.bold};
       color: ${theme.colors.dark};
       text-align: left;
       white-space: nowrap;
       overflow: hidden;
+      width: 100%;
       text-overflow: ellipsis;
+      font-family: "Amatic SC", cursive;
     }
 
     .description {
       display: grid;
       grid-template-columns: 1fr 1fr;
 
-      .price {
+      .left-description {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -85,7 +81,7 @@ const CardStyled = styled("div")`
         color: ${theme.colors.primary};
       }
 
-      .button {
+      .right-description {
         display: flex;
         justify-content: flex-end;
         align-items: center;
