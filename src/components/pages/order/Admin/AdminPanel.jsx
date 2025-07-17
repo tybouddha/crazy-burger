@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { OrderContext } from "../../../../context/OrderContext";
 import { tabsConfig, getTabSelected } from "./tabsConfig";
 import { theme } from "../../../../theme";
+import AddForm from "../AdminPanel/AddForm";
 
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
@@ -10,7 +11,11 @@ export default function AdminPanel() {
   const tabs = tabsConfig();
   const tabSelected = getTabSelected(tabs, currentTabSelected);
 
-  return <AdminPanelStyled>{tabSelected.label}</AdminPanelStyled>;
+  return (
+    <AdminPanelStyled>
+      {tabSelected.label} <AddForm />
+    </AdminPanelStyled>
+  );
 }
 
 const AdminPanelStyled = styled.div`
