@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function TextInput({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({
+  className,
+  onChange,
+  Icon,
+  ...extraProps
+}) {
   return (
-    <InputStyled>
-      {Icon && Icon}
+    <InputStyled className={className}>
+      {Icon && <span className="icon">{Icon}</span>}
       <input onChange={onChange} type="text" {...extraProps} />
     </InputStyled>
   );
@@ -15,15 +20,20 @@ const InputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
-  padding: 18px 24px;
-  margin: 18px 0; // could be handle in Parent too
-  /* white-space: nowrap; */
+  padding: 0 12px;
+  height: 40px;
+  box-shadow: 0 0 0 1px ${theme.colors.greyLight};
+  transition: all 0.2s ease;
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px ${theme.colors.primary};
+    border-color: ${theme.colors.primary};
+  }
 
   .icon {
     font-size: ${theme.fonts.size.SM};
     margin-right: 8px;
     color: ${theme.colors.greySemiDark};
-    /* min-width: 1em; // that way, the icon size is NOT affected by width of the entire component. */
   }
 
   input {
@@ -31,10 +41,10 @@ const InputStyled = styled.div`
     font-size: ${theme.fonts.size.SM};
     color: ${theme.colors.dark};
     width: 100%;
-    /* display: flex; */
+    outline: none;
+    background: transparent;
 
     &::placeholder {
-      background: ${theme.colors.white};
       color: ${theme.colors.greyMedium};
     }
   }

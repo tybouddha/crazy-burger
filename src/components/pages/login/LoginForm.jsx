@@ -34,6 +34,7 @@ export default function LoginForm() {
       </div>
       <div>
         <TextInput
+          className={"input"}
           value={inputValue}
           onChange={handleChange}
           placeholder={"Entrez votre prénom"}
@@ -73,6 +74,11 @@ const LoginFormStyled = styled.form`
     margin: 20px 10px 10px;
     color: ${theme.colors.white};
     font-size: ${theme.fonts.size.P4};
+  }
+
+  .input {
+    height: 55px;
+    margin-bottom: 18px;
   }
 
   .icon {
