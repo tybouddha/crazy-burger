@@ -1,22 +1,71 @@
 import styled from "styled-components";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import TextInput from "../../../../reusable-ui/TextInput";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import { theme } from "../../../../../theme";
+import { OrderContext } from "../../../../../context/OrderContext";
+import { FiCheckCircle } from "react-icons/fi";
 
 export default function AddForm() {
+  //state
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [price, setPrice] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const { addProduct } = useContext(OrderContext);
+
+  //pour price
+  const parsePrice = (value) => {
+    if (!value) return 0;
+    const normalized = value.replace(",", ".");
+    const number = parseFloat(normalized);
+    return isNaN(number) ? 0 : number;
+  };
+
+  const formatPrice = (value) =>
+    value.toLocaleString("fr-FR", {
+      style: "currency",
+      currency: "EUR",
+    });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ name, imageUrl, price });
+
+    // Traitement des données selon les règles métier
+    const finalName = name.trim() || "";
+    const finalImageUrl = imageUrl.trim() || "/images/coming-soon.png";
+    const finalPrice = parsePrice(price);
+
+    // Ajouter le produit au menu
+    const newProduct = {
+      id: Date.now(), // ID unique temporaire
+      title: finalName,
+      imageSource: finalImageUrl,
+      price: finalPrice,
+    };
+    console.log(addProduct);
+    addProduct(newProduct);
+    console.log({
+      name: finalName,
+      imageUrl: finalImageUrl,
+      price: formatPrice(finalPrice),
+    });
+
+    // Afficher le message de succès
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 2000);
+
+    // Vider le formulaire
+    setName("");
+    setImageUrl("");
+    setPrice("");
   };
 
+  //affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <div className="img">
@@ -33,6 +82,7 @@ export default function AddForm() {
           />
 
           <TextInput
+            type="url"
             Icon={<BsFillCameraFill />}
             placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
             value={imageUrl}
@@ -46,12 +96,19 @@ export default function AddForm() {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
-
-        <PrimaryButton
-          type="submit"
-          className="button"
-          label={"Ajouter un nouveau produit"}
-        />
+        <div className="button-success">
+          <PrimaryButton
+            type="submit"
+            className="button"
+            label={"Ajouter un nouveau produit"}
+          />
+          {showSuccess && (
+            <SuccessMessage>
+              <FiCheckCircle />
+              Ajouté avec succès !
+            </SuccessMessage>
+          )}
+        </div>
       </div>
     </AddFormStyled>
   );
@@ -80,11 +137,9 @@ const AddFormStyled = styled.form`
     background-color: ${theme.colors.white};
     text-align: center;
     padding: 8px;
-    transition: all 0.2s ease;
 
     &:hover {
       border-color: ${theme.colors.primary};
-      box-shadow: 0 2px 8px rgba(255, 160, 27, 0.1);
     }
   }
 
@@ -120,7 +175,6 @@ const AddFormStyled = styled.form`
     padding: 10px 16px;
     border-radius: ${theme.borderRadius.round};
     cursor: pointer;
-    transition: all 0.2s ease;
     border: 1px solid ${theme.colors.green};
     box-shadow: ${theme.shadows.subtle};
 
@@ -131,10 +185,42 @@ const AddFormStyled = styled.form`
       transform: translateY(-1px);
       box-shadow: ${theme.shadows.green};
     }
+  }
 
-    &:active {
-      transform: translateY(0);
-      box-shadow: ${theme.shadows.subtle};
+  .button-success {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+`;
+
+const SuccessMessage = styled.div`
+  /* background: ${theme.colors.green}; */
+  color: ${theme.colors.green};
+  padding: 8px 16px;
+  border-radius: ${theme.borderRadius.round};
+  font-weight: ${theme.fonts.weights.bold};
+  box-shadow: ${theme.shadows.subtle};
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+  animation: slideIn 0.3s ease-out;
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(30%);
+      opacity: 0;
     }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  svg {
+    font-size: 1.3em;
+    color: ${theme.colors.green};
   }
 `;
