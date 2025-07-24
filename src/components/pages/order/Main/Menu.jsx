@@ -6,7 +6,7 @@ import Card from "../../../reusable-ui/Card";
 import { OrderContext } from "../../../../context/OrderContext";
 
 export default function Menu() {
-  const { menu } = useContext(OrderContext);
+  const { menu, isModeAdmin } = useContext(OrderContext);
   const displayMenu = menu;
 
   return (
@@ -18,6 +18,7 @@ export default function Menu() {
             title={title}
             imageSource={imageSource}
             leftDescription={formatPrice(price)}
+            hasDeleteButton={isModeAdmin}
           />
         );
       })}
