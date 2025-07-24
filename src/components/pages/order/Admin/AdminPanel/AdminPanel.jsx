@@ -1,10 +1,8 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { OrderContext } from "../../../../context/OrderContext";
-import { tabsConfig, getTabSelected } from "./tabsConfig";
-import { theme } from "../../../../theme";
-import AddForm from "./AdminPanel/AddForm";
-import EditForm from "./AdminPanel/EditForm";
+import { OrderContext } from "../../../../../context/OrderContext";
+import { tabsConfig, getTabSelected } from "../tabsConfig";
+import { theme } from "../../../../../theme";
 
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
@@ -14,7 +12,7 @@ export default function AdminPanel() {
 
   return (
     <AdminPanelStyled>
-      {tabSelected.label === "Ajouter un produit" ? <AddForm /> : <EditForm />}
+      {tabSelected.label && tabSelected.Content}
     </AdminPanelStyled>
   );
 }

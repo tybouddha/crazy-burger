@@ -9,7 +9,7 @@ export function OrderContextProvider({ children }) {
   const [menu, setMenu] = useState(fakeMenu.LARGE);
 
   const addProduct = (newProduct) => {
-    setMenu((prevMenu) => [...prevMenu, newProduct]);
+    setMenu((prevMenu) => [newProduct, ...prevMenu]);
   };
 
   const value = {

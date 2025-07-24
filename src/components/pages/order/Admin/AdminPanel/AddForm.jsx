@@ -35,14 +35,13 @@ export default function AddForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Traitement des données selon les règles métier
     const finalName = name.trim() || "";
     const finalImageUrl = imageUrl.trim() || "/images/coming-soon.png";
     const finalPrice = parsePrice(price);
 
-    // Ajouter le produit au menu
+    // Ajoute le produit au menu
     const newProduct = {
-      id: Date.now(), // ID unique temporaire
+      id: crypto.randomUUID(),
       title: finalName,
       imageSource: finalImageUrl,
       price: finalPrice,
