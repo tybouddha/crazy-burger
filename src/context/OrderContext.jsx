@@ -9,4 +9,5 @@ export const OrderContext = createContext({
   setCurrentTabSelected: () => {},
   menu: [],
   addProduct: () => {},
+  deleteProduct: () => {},
 });

@@ -12,6 +12,10 @@ export function OrderContextProvider({ children }) {
     setMenu((prevMenu) => [newProduct, ...prevMenu]);
   };
 
+  const deleteProduct = (id) => {
+    setMenu((prevMenu) => prevMenu.filter((product) => product.id !== id));
+  };
+
   const value = {
     isModeAdmin,
     setIsModeAdmin,
@@ -21,6 +25,7 @@ export function OrderContextProvider({ children }) {
     setCurrentTabSelected,
     menu,
     addProduct,
+    deleteProduct,
   };
 
   return (
