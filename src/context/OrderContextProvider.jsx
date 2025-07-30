@@ -24,6 +24,7 @@ export function OrderContextProvider({ children }) {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
+    setMenu,
     addProduct,
     deleteProduct,
   };

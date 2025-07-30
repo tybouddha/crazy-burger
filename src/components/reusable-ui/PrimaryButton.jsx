@@ -1,13 +1,13 @@
-import styled from "styled-components"
-import { theme } from "../../theme"
+import styled from "styled-components";
+import { theme } from "../../theme";
 
-export default function PrimaryButton({ label, Icon, className }) {
+export default function PrimaryButton({ label, Icon, className, onClick }) {
   return (
-    <PrimaryButtonStyled className={className}>
+    <PrimaryButtonStyled className={className} onClick={onClick}>
       <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyled>
-  )
+  );
 }
 
 const PrimaryButtonStyled = styled.button`
@@ -60,4 +60,4 @@ const PrimaryButtonStyled = styled.button`
       color: ${theme.colors.primary};
     }
   }
-`
+`;

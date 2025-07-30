@@ -4,11 +4,32 @@ import { theme } from "../../../../theme";
 import { formatPrice } from "../../../../utils/maths";
 import Card from "../../../reusable-ui/Card";
 import { OrderContext } from "../../../../context/OrderContext";
+import PrimaryButton from "../../../reusable-ui/PrimaryButton";
+import { fakeMenu } from "../../../../fakeData/fakeMenu";
 
 export default function Menu() {
-  const { menu, isModeAdmin, deleteProduct } = useContext(OrderContext);
+  //state
+  const { menu, setMenu, isModeAdmin, deleteProduct } =
+    useContext(OrderContext);
   const displayMenu = menu;
-
+  //comportement
+  const resetMenu = () => {
+    console.log("reset menu");
+    setMenu(fakeMenu.LARGE);
+  };
+  //affichage
+  if (menu.length === 0)
+    return (
+      <div>
+        <span>LE MENU EST VIDE?</span>
+        <br />
+        <span>CLIQUEZ CI-DESSOUS POUR LE REINITIALISER </span>
+        <PrimaryButton
+          label={"Générer de nouveaux produits"}
+          onClick={resetMenu}
+        />
+      </div>
+    );
   return (
     <MenuStyled className="menu">
       {displayMenu.map(({ id, title, imageSource, price }) => {
