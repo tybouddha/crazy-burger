@@ -1,1 +1,1 @@
-export const reloadPage = () => window.location.reload();
+export const refreshPage = () => window.location.reload()

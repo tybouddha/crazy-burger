@@ -1,28 +1,28 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { IoChevronForward } from "react-icons/io5";
-import { BsPersonCircle } from "react-icons/bs";
-import TextInput from "../../reusable-ui/TextInput";
-import PrimaryButton from "../../reusable-ui/PrimaryButton";
-import { theme } from "../../../theme";
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import styled from "styled-components"
+import { IoChevronForward } from "react-icons/io5"
+import { BsPersonCircle } from "react-icons/bs"
+import TextInput from "../../reusable-ui/TextInput"
+import Button from "../../reusable-ui/Button"
+import { theme } from "../../../theme"
 
 export default function LoginForm() {
   // state
-  const [inputValue, setInputValue] = useState("");
-  const navigate = useNavigate();
+  const [inputValue, setInputValue] = useState("Bob")
+  const navigate = useNavigate()
 
   // comportements
   const handleSubmit = (event) => {
-    console.log("submitted");
-    event.preventDefault();
-    setInputValue("");
-    navigate(`order/${inputValue}`);
-  };
+    console.log("submitted")
+    event.preventDefault()
+    setInputValue("")
+    navigate(`order/${inputValue}`)
+  }
 
   const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
+    setInputValue(event.target.value)
+  }
 
   // affichage
   return (
@@ -34,21 +34,19 @@ export default function LoginForm() {
       </div>
       <div>
         <TextInput
-          className={"input"}
           value={inputValue}
           onChange={handleChange}
           placeholder={"Entrez votre prénom"}
           required
-          Icon={<BsPersonCircle className="icon" />}
+          Icon={<BsPersonCircle />}
+          className="input-login"
+          version="normal"
         />
 
-        <PrimaryButton
-          label={"Accéder à mon espace"}
-          Icon={<IoChevronForward className="icon" />}
-        />
+        <Button label={"Accéder à mon espace"} Icon={<IoChevronForward />} />
       </div>
     </LoginFormStyled>
-  );
+  )
 }
 
 const LoginFormStyled = styled.form`
@@ -76,16 +74,7 @@ const LoginFormStyled = styled.form`
     font-size: ${theme.fonts.size.P4};
   }
 
-  .input {
-    height: 55px;
-    margin-bottom: 18px;
+  .input-login {
+    margin: 18px 0; // must be handled in Parent
   }
-
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${theme.fonts.size.P0};
-    margin-left: 10px;
-  }
-`;
+`

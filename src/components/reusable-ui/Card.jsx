@@ -1,24 +1,13 @@
-import styled from "styled-components";
-import { theme } from "../../theme";
-import PrimaryButton from "./PrimaryButton";
-import { TiDelete } from "react-icons/ti";
+import styled from "styled-components"
+import { theme } from "../../theme"
+import Button from "./Button"
+import { TiDelete } from "react-icons/ti"
 
-export default function Card({
-  title,
-  imageSource,
-  leftDescription,
-  hasDeleteButton,
-  onDelete,
-}) {
+export default function Card({ title, imageSource, leftDescription, hasDeleteButton, onDelete }) {
   return (
     <CardStyled className="produit">
       {hasDeleteButton && (
-        <button
-          className="delete-button"
-          aria-label="delete-button"
-          type="button"
-          onClick={onDelete}
-        >
+        <button className="delete-button" aria-label="delete-button" onClick={onDelete}>
           <TiDelete className="icon" />
         </button>
       )}
@@ -31,12 +20,12 @@ export default function Card({
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={"Ajouter"} />
+            <Button className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
     </CardStyled>
-  );
+  )
 }
 
 const CardStyled = styled.div`
@@ -47,7 +36,7 @@ const CardStyled = styled.div`
   grid-template-rows: 65% 1fr;
   padding: 20px;
   padding-bottom: 10px;
-  box-shadow: ${theme.shadows.medium};
+  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
   position: relative;
 
@@ -64,15 +53,20 @@ const CardStyled = styled.div`
     padding: 0;
     border: none;
     background: none;
-  }
 
-  .icon {
-    height: 100%;
-    width: 100%;
-  }
+    .icon {
+      /* border: 1px solid blue; */
+      height: 100%;
+      width: 100%;
+    }
 
-  :hover {
-    color: ${theme.colors.red};
+    :hover {
+      color: ${theme.colors.red};
+      /* background-color: red; */
+    }
+    :active {
+      color: ${theme.colors.primary};
+    }
   }
 
   .image {
@@ -138,4 +132,4 @@ const CardStyled = styled.div`
       }
     }
   }
-`;
+`

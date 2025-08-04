@@ -1,3 +1,3 @@
 export default function EditForm() {
-  return <div>EditForm</div>;
+  return <div>EditForm</div>
 }
