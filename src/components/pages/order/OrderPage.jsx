@@ -28,6 +28,24 @@ export default function OrderPage() {
     setMenu(menuUpdated);
   };
 
+  const handleEdit = (productBeingEdited) => {
+    console.log("productBeingEdited: ", productBeingEdited);
+
+    // 1. copie du tableau
+    const menuCopy = JSON.parse(JSON.stringify(menu));
+
+    // 2. manip de la copie du tableau
+    const indexOfProductToEdit = menu.findIndex(
+      (MenuProduct) => MenuProduct.id === productBeingEdited.id
+    );
+    console.log("indexOfProductToEdit: ", indexOfProductToEdit);
+
+    menuCopy[indexOfProductToEdit] = productBeingEdited;
+
+    // 3. update du state
+    setMenu(menuCopy);
+  };
+
   const handleDelete = (idOfProductToDelete) => {
     //1. copy du state
     const menuCopy = [...menu];
@@ -55,6 +73,7 @@ export default function OrderPage() {
     setCurrentTabSelected,
     menu,
     handleAdd,
+    handleEdit,
     handleDelete,
     resetMenu,
     newProduct,
