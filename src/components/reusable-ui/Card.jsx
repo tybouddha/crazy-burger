@@ -41,6 +41,7 @@ export default function Card({
 
 const CardStyled = styled.div`
   background: ${theme.colors.white};
+  box-sizing: border-box;
   width: 200px;
   height: 300px;
   display: grid;
