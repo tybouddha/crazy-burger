@@ -16,10 +16,10 @@ export default function Menu() {
 
   // comportements
   const handleClick = (idProductClicked) => {
-    const productSelected = menu.find(
+    const productClickedOn = menu.find(
       (product) => product.id === idProductClicked
     );
-    setProductSelected(productSelected);
+    setProductSelected(productClickedOn);
   };
 
   // affichage
