@@ -13,6 +13,11 @@ export default function Card({
   isHoverable,
   isSelected,
 }) {
+  //State
+
+  // comportements
+
+  //Affichage
   return (
     <CardStyled
       className="produit"
@@ -38,7 +43,11 @@ export default function Card({
           <div className="description">
             <div className="left-description">{leftDescription}</div>
             <div className="right-description">
-              <Button className="primary-button" label={"Ajouter"} />
+              <Button
+                className="primary-button"
+                label={"Ajouter"}
+                onClick={(event) => event.stopPropagation()}
+              />
             </div>
           </div>
         </div>
