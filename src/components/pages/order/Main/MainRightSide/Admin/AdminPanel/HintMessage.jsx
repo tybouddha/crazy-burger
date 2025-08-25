@@ -18,7 +18,8 @@ const HintMessageStyled = styled("div")`
   position: relative;
   top: 50px;
 
-  font-family: "Amatic SC", cursive;
+  font-family: ${theme.fonts.family.stylish};
+
   font-size: ${theme.fonts.size.P3};
   color: ${theme.colors.greyBlue};
 

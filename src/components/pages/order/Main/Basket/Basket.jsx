@@ -3,7 +3,6 @@ import { theme } from "../../../../../theme";
 import Total from "./Total";
 import Footer from "./Footer";
 import { formatPrice } from "../../../../../utils/maths";
-import Header from "../../../../reusable-ui/Header";
 
 export default function Basket() {
   return (
@@ -11,9 +10,8 @@ export default function Basket() {
       <Total amountToPay={formatPrice(0)} />
 
       <div className="body">Body</div>
-      <Header>
-        <Footer />
-      </Header>
+
+      <Footer />
     </BasketStyled>
   );
 }

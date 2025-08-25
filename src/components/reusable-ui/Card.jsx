@@ -133,7 +133,7 @@ const CardStyled = styled.div`
         overflow: hidden;
         width: 100%;
         text-overflow: ellipsis;
-        font-family: "Amatic SC", cursive;
+        font-family: ${theme.fonts.family.stylish};
       }
 
       .description {
