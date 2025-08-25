@@ -1,13 +1,11 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
 import { OrderContext } from "../../../../../../../context/OrderContext";
-
 import TextInput from "../../../../../../reusable-ui/TextInput";
-import Button from "../../../../../../reusable-ui/Button";
 import ImagePreview from "./ImagePreview";
-import SubmitMessage from "./SubmitMessage";
 import { getInputTextsConfig } from "./inputTextConfig";
 import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
+import SubmitButton from "./SubmitButton";
 
 export default function AddForm() {
   // state
@@ -60,12 +58,7 @@ export default function AddForm() {
         ))}
       </div>
       <div className="submit">
-        <Button
-          className="submit-button"
-          label={"Ajouter un nouveau produit au menu"}
-          version="success"
-        />
-        {isSubmitted && <SubmitMessage />}
+        <SubmitButton isSubmitted={isSubmitted} />
       </div>
     </AddFormStyled>
   );
