@@ -12,9 +12,17 @@ export const OrderContext = createContext({
 
   menu: [],
   handleAdd: () => {},
+  handleEdit: () => {},
   handleDelete: () => {},
   resetMenu: () => {},
 
-  newProduct: [],
+  //pour AddForm
+  newProduct: {},
   setNewProduct: () => {},
+
+  // pour EditForm
+  productSelected: {},
+  setProductSelected: () => {},
+
+  titleEditRef: {},
 });
