@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { OrderContext } from "../../../../../../../context/OrderContext";
 import TextInput from "../../../../../../reusable-ui/TextInput";
@@ -6,11 +6,12 @@ import ImagePreview from "./ImagePreview";
 import { getInputTextsConfig } from "./inputTextConfig";
 import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
 import SubmitButton from "./SubmitButton";
+import { useSuccessMessage } from "../../../../../../../hooks/useSuccesMessage";
 
 export default function AddForm() {
   // state
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { isSubmitted, displaySuccessMessage } = useSuccessMessage();
 
   // comportements
   const handleSubmit = (event) => {
@@ -29,13 +30,6 @@ export default function AddForm() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewProduct({ ...newProduct, [name]: value });
-  };
-
-  const displaySuccessMessage = () => {
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 2000);
   };
 
   const inputTexts = getInputTextsConfig(newProduct);
