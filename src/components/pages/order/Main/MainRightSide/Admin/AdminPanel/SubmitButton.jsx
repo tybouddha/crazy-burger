@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../../../../../reusable-ui/Button";
 import SubmitMessage from "./SubmitMessage";
 
-export default function SubmitButton(isSubmitted) {
+export default function SubmitButton({ isSubmitted }) {
   return (
     <>
       <Button
