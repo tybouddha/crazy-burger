@@ -10,7 +10,7 @@ import { useSuccessMessage } from "../../../../../../../hooks/useSuccesMessage";
 
 export default function AddForm() {
   // state
-  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
+  const { newProduct, setNewProduct, handleAdd } = useContext(OrderContext);
   const { isSubmitted, displaySuccessMessage } = useSuccessMessage();
 
   // comportements
