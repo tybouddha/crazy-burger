@@ -18,8 +18,13 @@ export const useBasket = () => {
       setBasket(basketUpdater);
     }
     //2eme cas: le produit est déjà dans le panier
-
-    // const basketUpdater = isProductAlreadyInBasket.quantity += 1;}
+    else {
+      const indexOfProductToIncrement = basket.findIndex(
+        (basketProduct) => basketProduct.id === productToAdd.id
+      );
+      basketCopy[indexOfProductToIncrement].quantity += 1;
+      setBasket(basketCopy);
+    }
     // setBasket(isProductAlreadyInBasket);
   };
   return { basket, handleAddToBasket };
