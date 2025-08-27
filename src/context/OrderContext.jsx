@@ -27,4 +27,5 @@ export const OrderContext = createContext({
   titleEditRef: {},
 
   basket: [],
+  handleAddToBasket: () => {},
 });
