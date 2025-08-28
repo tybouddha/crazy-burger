@@ -7,14 +7,22 @@ export const useBasket = () => {
   const handleAddToBasket = (productToAdd) => {
     const basketCopy = deepClone(basket);
     const productFoundInBasket = findInArray(productToAdd.id, basketCopy);
+    //1er cas : le produit n'est pas dans le panier
     if (!productFoundInBasket) {
-      const newBasketProduct = { ...productToAdd, quantity: 1 };
-      const basketUpdater = [newBasketProduct, ...basketCopy];
-      setBasket(basketUpdater);
+      createNewProductInBasket(productToAdd, basketCopy, setBasket);
       return;
     }
+    //2e cas : le produit est déjà dans le panier
     incrementProductAlreadyInBasket(productToAdd, basketCopy);
   };
+
+  const createNewProductInBasket = (productToAdd, basketCopy, setBasket) => {
+    const newBasketProduct = { ...productToAdd, quantity: 1 };
+    const basketUpdater = [newBasketProduct, ...basketCopy];
+    setBasket(basketUpdater);
+    return;
+  };
+
   const incrementProductAlreadyInBasket = (productToAdd, basketCopy) => {
     const indexOfProductToIncrement = findIndexInArray(
       productToAdd.id,
