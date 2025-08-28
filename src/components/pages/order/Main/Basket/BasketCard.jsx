@@ -42,7 +42,6 @@ const BasketCardStyled = styled.div`
   padding: 8px 16px;
   display: grid;
   grid-template-columns: 30% 1fr;
-  ${"" /* align-items: center; */}
 
   border-radius: ${theme.borderRadius.round};
   background: ${theme.colors.white};
@@ -139,7 +138,7 @@ const BasketCardStyled = styled.div`
       border-top-right-radius: ${theme.borderRadius.round};
       border-bottom-right-radius: ${theme.borderRadius.round};
       padding: 10px;
-      display: flex !important;
+      display: flexd;
       align-items: center;
       justify-content: center;
       background: ${theme.colors.red};

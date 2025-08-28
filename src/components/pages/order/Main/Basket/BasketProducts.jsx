@@ -35,10 +35,10 @@ const BasketProductsStyled = styled("div")`
     margin: 10px 16px;
     height: 86px;
     box-sizing: border-box;
-    :first-child {
+    &:first-child {
       margin-top: 20px;
     }
-    :last-child {
+    &:last-child {
       margin-bottom: 20px;
     }
   }
