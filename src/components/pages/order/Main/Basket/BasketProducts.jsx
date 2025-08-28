@@ -3,6 +3,10 @@ import BasketCard from "./BasketCard";
 import { IMAGE_COMING_SOON } from "../../../../../enums/product";
 
 export default function BasketProducts({ basket }) {
+  const handleOnDelete = (id) => {
+    console.log("Delete button clicked", id);
+  };
+
   return (
     <BasketProductsStyled>
       {basket.map((basketProduct) => (
@@ -14,6 +18,7 @@ export default function BasketProducts({ basket }) {
                 ? basketProduct.imageSource
                 : IMAGE_COMING_SOON
             }
+            onDelete={() => handleOnDelete(basketProduct.id)}
           />
         </div>
       ))}

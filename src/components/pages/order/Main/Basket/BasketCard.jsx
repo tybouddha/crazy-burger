@@ -9,8 +9,8 @@ export default function BasketCard({
   quantity,
   imageSource,
   className,
-  isModeAdmin,
   onDelete,
+  isModeAdmin,
 }) {
   return (
     <BasketCardStyled className={className} isModeAdmin={isModeAdmin}>
@@ -68,7 +68,6 @@ const BasketCardStyled = styled.div`
   .text-info {
     user-select: none;
     box-sizing: border-box;
-    border: 1px solid red;
     display: grid;
     grid-template-columns: 70% 1fr;
     height: 70px;
@@ -77,7 +76,6 @@ const BasketCardStyled = styled.div`
     color: ${theme.colors.primary};
 
     .left-info {
-      border: 1px solid blue;
       display: grid;
       grid-template-rows: 60% 40%;
       height: 70px;
@@ -86,7 +84,6 @@ const BasketCardStyled = styled.div`
       justify-items: start;
       align-self: start;
       .title {
-        border: 1px solid green;
         display: flex;
         align-items: center;
         font-family: ${theme.fonts.family.stylish};
@@ -130,7 +127,7 @@ const BasketCardStyled = styled.div`
   }
 
   /* hover de la card */
-  :hover {
+  &:hover {
     .delete-button {
       border: none;
       box-sizing: border-box;
@@ -142,7 +139,7 @@ const BasketCardStyled = styled.div`
       border-top-right-radius: ${theme.borderRadius.round};
       border-bottom-right-radius: ${theme.borderRadius.round};
       padding: 10px;
-      display: flex;
+      display: flex !important;
       align-items: center;
       justify-content: center;
       background: ${theme.colors.red};
@@ -152,6 +149,7 @@ const BasketCardStyled = styled.div`
       .icon {
         width: ${theme.fonts.size.P3};
         height: ${theme.fonts.size.P3};
+        color: ${theme.colors.white};
       }
 
       /* behaviour on delete-button hover */
