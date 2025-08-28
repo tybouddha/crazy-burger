@@ -2,14 +2,16 @@ import styled from "styled-components";
 import { OrderContext } from "../../../../../../context/OrderContext";
 import { theme } from "../../../../../../theme";
 import { formatPrice } from "../../../../../../utils/maths";
+import { findInArray } from "../../../../../../utils/array";
 import Card from "../../../../../reusable-ui/Card";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { useContext } from "react";
 import { checkedIfProductIsClicked } from "./helper";
-import { EMPTY_PRODUCT } from "../../../../../../enums/product";
-
-const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
+import {
+  EMPTY_PRODUCT,
+  IMAGE_COMING_SOON,
+} from "../../../../../../enums/product";
 
 export default function Menu() {
   const {
@@ -22,6 +24,8 @@ export default function Menu() {
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
   } = useContext(OrderContext);
   // state
 
@@ -31,9 +35,7 @@ export default function Menu() {
     if (!isModeAdmin) return;
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
-    const productClickedOn = menu.find(
-      (product) => product.id === idProductClicked
-    );
+    const productClickedOn = findInArray(idProductClicked, menu);
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
@@ -41,9 +43,16 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete);
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
     titleEditRef.current.focus();
+  };
+
+  const handleAddbutton = (event, idProductToAdd) => {
+    event.stopPropagation();
+    const productToAdd = findInArray(idProductToAdd, menu);
+    handleAddToBasket(productToAdd);
   };
 
   // affichage
@@ -59,13 +68,14 @@ export default function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
+            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkedIfProductIsClicked(id, productSelected.id)}
+            onAdd={(event) => handleAddbutton(event, id)}
           />
         );
       })}
