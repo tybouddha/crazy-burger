@@ -9,3 +9,7 @@ export const findInArray = (id, array) => {
 export const findIndexInArray = (idWithUnknowIndex, array) => {
   return array.findIndex((itemInArray) => itemInArray.id === idWithUnknowIndex);
 };
+
+export const filterInArray = (idOfItemToRemove, array) => {
+  return array.filter((itemInArray) => itemInArray.id !== idOfItemToRemove);
+};

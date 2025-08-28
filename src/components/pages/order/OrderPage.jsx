@@ -17,7 +17,7 @@ export default function OrderPage() {
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
   const { menu, handleAdd, handleEdit, handleDelete, resetMenu } = useMenu();
-  const { basket, handleAddToBasket } = useBasket();
+  const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
 
   // comportements
 
@@ -40,6 +40,7 @@ export default function OrderPage() {
     titleEditRef,
     basket,
     handleAddToBasket,
+    handleDeleteBasketProduct,
   };
 
   //affichage

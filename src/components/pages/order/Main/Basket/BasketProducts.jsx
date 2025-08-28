@@ -2,9 +2,9 @@ import styled from "styled-components";
 import BasketCard from "./BasketCard";
 import { IMAGE_COMING_SOON } from "../../../../../enums/product";
 
-export default function BasketProducts({ basket }) {
-  const handleOnDelete = (id) => {
-    console.log("Delete button clicked", id);
+export default function BasketProducts({ basket, handleDeleteBasketProduct }) {
+  const handleOnDelete = (idProductToRemoveFromBasket) => {
+    handleDeleteBasketProduct(idProductToRemoveFromBasket);
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
-import { deepClone, findIndexInArray } from "../utils/array";
+import { deepClone, filterInArray, findIndexInArray } from "../utils/array";
 
 export const useMenu = () => {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
@@ -30,10 +30,7 @@ export const useMenu = () => {
   const handleDelete = (idOfProductToDelete) => {
     const menuCopy = deepClone(menu);
 
-    const menuUpdated = menuCopy.filter(
-      (product) => product.id !== idOfProductToDelete
-    );
-    console.log("menuUpdated: ", menuUpdated);
+    const menuUpdated = filterInArray(idOfProductToDelete, menuCopy);
 
     setMenu(menuUpdated);
   };
